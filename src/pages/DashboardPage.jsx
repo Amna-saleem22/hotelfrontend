@@ -1,0 +1,270 @@
+import React, { useEffect, useState } from "react";
+import axiosInstance from "../api/axiosInstance";
+import {
+  Container,
+  Typography,
+  Card,
+  CardContent,
+  Button,
+  Grid,
+  Chip,
+  Alert,
+  Snackbar,
+  CircularProgress,
+  Box,
+  Divider,
+} from "@mui/material";
+import { io } from "socket.io-client";
+
+export default function UserDashboard() {
+  const [bookings, setBookings] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    message: "",
+    severity: "success",
+  });
+  const [cancellingId, setCancellingId] = useState(null);
+
+  // ===================== SOCKET CONNECTION =====================
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const userId = localStorage.getItem("userId");
+    if (!token || !userId) return;
+
+    const socket = io(process.env.REACT_APP_API_URL || "http://localhost:5000", {
+      auth: { token },
+    });
+
+    socket.emit("join-user-room", userId);
+
+    socket.on("bookingUpdated", (updatedBooking) => {
+      setBookings((prev) =>
+        prev.map((b) => (b._id === updatedBooking._id ? updatedBooking : b))
+      );
+
+      if (updatedBooking.status === "confirmed")
+        showSnackbar("Your booking is confirmed! ✅", "success");
+      else if (updatedBooking.status === "cancelled")
+        showSnackbar("Your booking has been cancelled ❌", "info");
+      else if (updatedBooking.status === "checked-in")
+        showSnackbar("You are checked-in 🏨", "info");
+      else if (updatedBooking.status === "checked-out")
+        showSnackbar("Stay completed ✅", "success");
+    });
+
+    return () => socket.disconnect();
+  }, []);
+
+  // ===================== FETCH BOOKINGS =====================
+  const fetchBookings = async () => {
+    try {
+      setLoading(true);
+      const token = localStorage.getItem("token");
+      if (!token) throw new Error("User not authenticated");
+
+      const res = await axiosInstance.get("/bookings/my", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      // Only show bookings for the logged-in user
+      setBookings(res.data.bookings || []);
+    } catch (err) {
+      console.error("Fetch bookings error:", err);
+      showSnackbar(
+        err.response?.data?.message || err.message || "Error fetching bookings",
+        "error"
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchBookings();
+  }, []);
+
+  // ===================== CANCEL BOOKING =====================
+const cancelBooking = async (id) => {
+  try {
+    setCancellingId(id);
+
+    const token = localStorage.getItem("token");
+    const res = await axiosInstance.put(
+      `/bookings/${id}/cancel`, // updated route
+      {},
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+
+    // ✅ Remove the booking from dashboard immediately
+    setBookings((prev) => prev.filter((b) => b._id !== id));
+
+    showSnackbar(res.data.message || "Booking cancelled successfully ✅", "success");
+  } catch (err) {
+    console.error(err);
+    showSnackbar(
+      err.response?.data?.message || "Error cancelling booking",
+      "error"
+    );
+  } finally {
+    setCancellingId(null);
+  }
+};
+  // ===================== SNACKBAR =====================
+  const showSnackbar = (message, severity) => {
+    setSnackbar({ open: true, message, severity });
+  };
+  const handleCloseSnackbar = () => setSnackbar({ ...snackbar, open: false });
+
+  // ===================== STATUS COLOR =====================
+  const getStatusColor = (status = "pending") => {
+    switch (status) {
+      case "confirmed":
+        return "success";
+      case "cancelled":
+        return "error";
+      case "checked-in":
+        return "info";
+      case "checked-out":
+        return "primary";
+      default:
+        return "warning";
+    }
+  };
+
+  // ===================== LOADING =====================
+  if (loading) {
+    return (
+      <Container sx={{ mt: 5, textAlign: "center" }}>
+        <CircularProgress />
+      </Container>
+    );
+  }
+
+  // ===================== DASHBOARD UI =====================
+  return (
+    <Container sx={{ mt: 5 }}>
+      <Typography variant="h4" gutterBottom>
+        My Bookings
+      </Typography>
+
+      {bookings.length === 0 ? (
+        <Alert severity="info">You have no bookings yet.</Alert>
+      ) : (
+        <Grid container spacing={3}>
+          {bookings.map((booking) => (
+            <Grid item xs={12} md={6} key={booking._id}>
+              <Card
+                sx={{
+                  position: "relative",
+                  opacity: cancellingId === booking._id ? 0.7 : 1,
+                  transition: "0.3s",
+                }}
+              >
+                <CardContent>
+                  <Typography variant="h6">
+                    Booking ID: {booking._id?.slice(-6).toUpperCase() || "N/A"}
+                  </Typography>
+                  <Divider sx={{ my: 1 }} />
+                  <Typography>
+                    📅 Check-In:{" "}
+                    {booking.checkInDate
+                      ? new Date(booking.checkInDate).toLocaleDateString()
+                      : "N/A"}
+                  </Typography>
+                  <Typography>
+                    📅 Check-Out:{" "}
+                    {booking.checkOutDate
+                      ? new Date(booking.checkOutDate).toLocaleDateString()
+                      : "N/A"}
+                  </Typography>
+                  <Typography>🏨 Room Type: {booking.roomType || "N/A"}</Typography>
+                  <Typography>👥 Guests: {booking.totalGuests || 0}</Typography>
+                  {booking.foodPackage && (
+                    <Typography>🍽️ Food Package: {booking.foodPackage}</Typography>
+                  )}
+                  <Typography variant="h6" sx={{ mt: 2 }}>
+                    Total: RS{(booking.totalAmount || 0).toLocaleString()}
+                  </Typography>
+
+                  <Box sx={{ mt: 2, display: "flex", alignItems: "center", gap: 1 }}>
+                    <Chip
+                      label={(booking.status || "pending").toUpperCase()}
+                      color={getStatusColor(booking.status)}
+                    />
+                    {cancellingId === booking._id && <CircularProgress size={20} />}
+                  </Box>
+
+                  {booking.status === "pending" && (
+                    <Button
+                      variant="contained"
+                      color="error"
+                      sx={{ mt: 2 }}
+                      onClick={() => cancelBooking(booking._id)}
+                      disabled={cancellingId === booking._id}
+                    >
+                      Cancel Booking
+                    </Button>
+                  )}
+
+                  <Typography sx={{ mt: 2 }}>
+                    Assigned Room:{" "}
+                    {booking.assignedRoom?.roomNumber
+                      ? `Room #${booking.assignedRoom.roomNumber}`
+                      : booking.status === "confirmed"
+                      ? "Assigning..."
+                      : "Waiting for confirmation"}
+                  </Typography>
+
+                  {booking.upgrade && (
+                    <Alert severity="success" sx={{ mt: 1 }}>
+                      🎉 You have been upgraded!
+                    </Alert>
+                  )}
+
+                  {booking.extraService && (
+                    <Typography sx={{ mt: 1 }}>
+                      Extra Service: {booking.extraService}
+                    </Typography>
+                  )}
+
+                  {booking.status === "checked-in" && (
+                    <Alert severity="info" sx={{ mt: 2 }}>
+                      You are currently checked-in 🏨
+                    </Alert>
+                  )}
+
+                  {booking.status === "checked-out" && (
+                    <Alert severity="success" sx={{ mt: 2 }}>
+                      Stay completed successfully ✅
+                    </Alert>
+                  )}
+
+                  {booking.status === "cancelled" && (
+                    <Alert severity="error" sx={{ mt: 2 }}>
+                      This booking has been cancelled ❌
+                    </Alert>
+                  )}
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      )}
+
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <Alert onClose={handleCloseSnackbar} severity={snackbar.severity}>
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
+    </Container>
+  );
+}
+
+
+
