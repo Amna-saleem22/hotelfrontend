@@ -1,0 +1,56 @@
+You are a senior frontend React developer and UI/UX designer.
+
+I have already built a hotel website using React (.jsx). The website is fully responsive and already connected with backend APIs. DO NOT modify or break any backend logic, API calls, state management, or functional logic. Only improve the frontend UI/UX.
+
+Your tasks:
+
+1. Improve overall UI design to make it modern, clean, and premium (hotel/luxury style).
+2. Fix color contrast using a professional palette (e.g. dark blue, gold, white, beige, or luxury theme).
+3. Improve typography:
+   - Use modern Google Fonts (e.g. Poppins, Playfair Display, or Inter)
+   - Adjust font sizes, spacing, and hierarchy for better readability
+
+4. Add smooth animations using libraries like:
+   - Framer Motion (preferred)
+   - OR CSS transitions if needed
+
+   Animations should include:
+   - Smooth hover effects on buttons/cards
+   - Fade-in / slide-up on sections
+   - Subtle transitions (not too flashy)
+
+5. Improve layout spacing and alignment:
+   - Use consistent padding/margins
+   - Better section separation
+   - Grid or flex improvements where needed
+
+6. Enhance UI components:
+   - Navbar (modern sticky navbar)
+   - Hero section (attractive with overlay/gradient)
+   - Room cards (hover effects, shadow, clean layout)
+   - Buttons (rounded, modern, hover animations)
+   - Footer (clean and structured)
+
+7. Ensure:
+   - Fully responsive design remains intact
+   - No breaking of existing functionality
+   - No removal of backend integration
+   - No changes to API calls or logic
+
+8. Keep code clean and maintainable:
+   - Use reusable components where possible
+   - Follow best practices
+
+9. Optional improvements:
+   - Add subtle glassmorphism or soft shadows
+   - Improve loading states (skeleton or spinner UI)
+   - Add scroll animations
+
+IMPORTANT:
+- Do NOT touch backend logic
+- Do NOT change business logic
+- Do NOT remove any functionality
+- Only enhance UI/UX and frontend styling
+
+Output:
+Provide updated React JSX code with styling (CSS/Tailwind if applicable) and animation implementation.

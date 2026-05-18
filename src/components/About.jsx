@@ -30,16 +30,16 @@ import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 
 // ===== Theme constants =====
 const COLORS = {
-  background: '#0A0A0A',
-  backgroundElevated: '#111111',
-  surface: '#111111',
-  text: '#FFFFFF',
-  textSecondary: 'rgba(255, 255, 255, 0.7)',
-  textMuted: 'rgba(255, 255, 255, 0.5)',
-  primaryLight: '#0D47A1',
-  primaryDark: '#0A3D91',
-  border: 'rgba(255, 255, 255, 0.08)',
-  borderStrong: 'rgba(13, 71, 161, 0.4)',
+  background: '#0A0909',
+  backgroundElevated: '#141210',
+  surface: '#141210',
+  text: '#F0EBE1',
+  textSecondary: 'rgba(240, 235, 225, 0.68)',
+  textMuted: 'rgba(240, 235, 225, 0.45)',
+  primaryLight: '#C9A96E',
+  primaryDark: '#A68550',
+  border: 'rgba(201, 169, 110, 0.12)',
+  borderStrong: 'rgba(201, 169, 110, 0.36)',
 };
 
 const SPACING = {
@@ -268,7 +268,7 @@ const About = () => {
           left: 0;
           right: 0;
           bottom: 0;
-          background: radial-gradient(circle at 70% 50%, rgba(13,71,161,0.2) 0%, transparent 60%);
+          background: radial-gradient(circle at 70% 50%, rgba(201,169,110,0.2) 0%, transparent 60%);
           z-index: 2;
         }
 
@@ -714,10 +714,10 @@ const About = () => {
                       color: COLORS.text,
                       ...BUTTON.large,
                       borderRadius: BUTTON.borderRadius,
-                      boxShadow: '0 8px 20px rgba(13,71,161,0.4)',
+                      boxShadow: '0 8px 20px rgba(201,169,110,0.4)',
                       '&:hover': {
                         background: `linear-gradient(135deg, ${COLORS.primaryDark} 30%, ${COLORS.primary} 90%)`,
-                        boxShadow: '0 12px 30px rgba(13,71,161,0.6)',
+                        boxShadow: '0 12px 30px rgba(201,169,110,0.6)',
                       },
                     }}
                   >
@@ -740,7 +740,7 @@ const About = () => {
                       '&:hover': {
                         borderColor: COLORS.primaryDark,
                         borderWidth: 2,
-                        backgroundColor: 'rgba(13,71,161,0.2)',
+                        backgroundColor: 'rgba(201,169,110,0.2)',
                       },
                     }}
                   >
@@ -842,13 +842,13 @@ const About = () => {
                       key={index}
                       label={item}
                       sx={{
-                        backgroundColor: 'rgba(13,71,161,0.15)',
+                        backgroundColor: 'rgba(201,169,110,0.15)',
                         color: COLORS.primaryLight,
                         border: `1px solid ${COLORS.borderStrong}`,
                         fontSize: TYPOGRAPHY.body,
                         py: 1.5,
                         '&:hover': {
-                          backgroundColor: 'rgba(13,71,161,0.25)',
+                          backgroundColor: 'rgba(201,169,110,0.25)',
                         },
                       }}
                     />
@@ -923,7 +923,7 @@ const About = () => {
                       width: 150,
                       height: 150,
                       borderRadius: '50%',
-                      background: 'radial-gradient(circle, rgba(13,71,161,0.2) 0%, transparent 70%)',
+                      background: 'radial-gradient(circle, rgba(201,169,110,0.2) 0%, transparent 70%)',
                     }}
                   />
                   <CardContent sx={{ p: SPACING.cardPadding }}>
@@ -945,7 +945,7 @@ const About = () => {
                           label={item}
                           size="small"
                           sx={{ 
-                            backgroundColor: 'rgba(13,71,161,0.2)', 
+                            backgroundColor: 'rgba(201,169,110,0.2)', 
                             color: COLORS.primaryLight,
                             border: `1px solid ${COLORS.border}`,
                           }}
@@ -979,7 +979,7 @@ const About = () => {
                       width: 150,
                       height: 150,
                       borderRadius: '50%',
-                      background: 'radial-gradient(circle, rgba(13,71,161,0.2) 0%, transparent 70%)',
+                      background: 'radial-gradient(circle, rgba(201,169,110,0.2) 0%, transparent 70%)',
                     }}
                   />
                   <CardContent sx={{ p: SPACING.cardPadding }}>
@@ -1001,7 +1001,7 @@ const About = () => {
                           label={item}
                           size="small"
                           sx={{ 
-                            backgroundColor: 'rgba(13,71,161,0.2)', 
+                            backgroundColor: 'rgba(201,169,110,0.2)', 
                             color: COLORS.primaryLight,
                             border: `1px solid ${COLORS.border}`,
                           }}
@@ -1064,7 +1064,7 @@ const About = () => {
                       transition: 'all 0.3s ease',
                       '&:hover': {
                         border: `1px solid ${COLORS.borderStrong}`,
-                        boxShadow: '0 20px 40px rgba(13,71,161,0.3)',
+                        boxShadow: '0 20px 40px rgba(201,169,110,0.3)',
                       },
                     }}
                   >
@@ -1114,7 +1114,7 @@ const About = () => {
                             label={skill}
                             size="small"
                             sx={{
-                              backgroundColor: 'rgba(13,71,161,0.15)',
+                              backgroundColor: 'rgba(201,169,110,0.15)',
                               color: COLORS.primaryLight,
                               border: `1px solid ${COLORS.border}`,
                             }}
@@ -1180,7 +1180,7 @@ const About = () => {
                       transition: 'all 0.3s ease',
                       '&:hover': {
                         border: `1px solid ${COLORS.borderStrong}`,
-                        boxShadow: '0 15px 40px rgba(13,71,161,0.25)',
+                        boxShadow: '0 15px 40px rgba(201,169,110,0.25)',
                       },
                     }}
                   >
@@ -1189,7 +1189,7 @@ const About = () => {
                         display: 'inline-flex',
                         p: 2,
                         borderRadius: '50%',
-                        background: 'rgba(13,71,161,0.15)',
+                        background: 'rgba(201,169,110,0.15)',
                         color: COLORS.primaryLight,
                         mb: SPACING.titleToBody,
                         fontSize: '2.5rem',
@@ -1235,12 +1235,12 @@ const About = () => {
                     textAlign: 'center',
                     p: SPACING.cardPadding,
                     borderRadius: 2,
-                    background: 'rgba(13,71,161,0.05)',
+                    background: 'rgba(201,169,110,0.05)',
                     border: `1px solid ${COLORS.border}`,
                     transition: 'all 0.3s ease',
                     height: '100%',
                     '&:hover': {
-                      background: 'rgba(13,71,161,0.1)',
+                      background: 'rgba(201,169,110,0.1)',
                       border: `1px solid ${COLORS.borderStrong}`,
                     }
                   }}>

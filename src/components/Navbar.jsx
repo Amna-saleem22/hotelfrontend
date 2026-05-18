@@ -101,9 +101,9 @@ if (token) {
   const navbarBackground = useTransform(
     scrollY,
     [0, 100],
-    ['rgba(10, 10, 10, 0.9)', 'rgba(10, 10, 10, 0.98)']
+    ['rgba(10, 9, 8, 0.88)', 'rgba(10, 9, 8, 0.97)']
   );
-  const navbarBlur = useTransform(scrollY, [0, 100], ['blur(0px)', 'blur(10px)']);
+  const navbarBlur = useTransform(scrollY, [0, 100], ['blur(8px)', 'blur(16px)']);
   const navbarBorder = useTransform(
     scrollY,
     [0, 100],
@@ -142,7 +142,7 @@ if (token) {
             <Avatar sx={{ bgcolor: COLORS.primaryLight, width: 50, height: 50, mr: 2 }}>
               <DiamondIcon />
             </Avatar>
-            <Typography variant="h5" sx={{ fontWeight: 700, background: `linear-gradient(135deg, #fff 30%, ${COLORS.primaryLight} 90%)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            <Typography variant="h5" sx={{ fontWeight: 700, background: `linear-gradient(135deg, #F0EBE1 30%, ${COLORS.primaryLight} 90%)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: '"Playfair Display", Georgia, serif', letterSpacing: '0.08em' }}>
               LUXURY STAY
             </Typography>
           </Box>
@@ -164,7 +164,7 @@ if (token) {
                   px: 3,
                   mb: 1,
                   borderRadius: 2,
-                  backgroundColor: location.pathname === item.path ? 'rgba(13,71,161,0.15)' : 'transparent',
+                  backgroundColor: location.pathname === item.path ? 'rgba(201,169,110,0.12)' : 'transparent',
                 }}
               >
                 <ListItemIcon sx={{ color: location.pathname === item.path ? COLORS.primaryLight : '#fff', minWidth: 40 }}>{item.icon}</ListItemIcon>
@@ -187,7 +187,7 @@ if (token) {
                 <Avatar sx={{ bgcolor: COLORS.primaryLight, width: { xs: 40, md: 48 }, height: { xs: 40, md: 48 }, mr: 1.5 }}>
                   <DiamondIcon sx={{ fontSize: { xs: 20, md: 24 } }} />
                 </Avatar>
-                <Typography variant="h6" sx={{ fontWeight: 700, color: COLORS.primaryLight }}>LUXURY STAY</Typography>
+                <Typography variant="h6" sx={{ fontWeight: 700, color: COLORS.primaryLight, fontFamily: '"Playfair Display", Georgia, serif', letterSpacing: '0.08em', fontSize: { xs: '1.1rem', md: '1.2rem' } }}>LUXURY STAY</Typography>
               </Box>
             </motion.div>
 
@@ -200,7 +200,29 @@ if (token) {
                       to={item.path}
                       onClick={item.action || null}
                       size="medium"
-                      sx={{ color: location.pathname === item.path ? COLORS.primaryLight : '#fff' }}
+                      sx={{
+                        color: location.pathname === item.path ? COLORS.primaryLight : 'rgba(240,235,225,0.82)',
+                        fontWeight: location.pathname === item.path ? 600 : 400,
+                        fontSize: '0.875rem',
+                        letterSpacing: '0.04em',
+                        position: 'relative',
+                        px: 1.5,
+                        '&::after': {
+                          content: '""',
+                          position: 'absolute',
+                          bottom: '6px',
+                          left: '50%',
+                          transform: location.pathname === item.path ? 'translateX(-50%) scaleX(1)' : 'translateX(-50%) scaleX(0)',
+                          width: '55%',
+                          height: '1.5px',
+                          background: COLORS.primaryLight,
+                          transition: 'transform 0.3s ease',
+                          borderRadius: '2px',
+                          transformOrigin: 'center',
+                        },
+                        '&:hover': { color: COLORS.primaryLight, background: 'transparent' },
+                        '&:hover::after': { transform: 'translateX(-50%) scaleX(1)' },
+                      }}
                     >
                       {item.text}
                     </Button>

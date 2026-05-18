@@ -184,49 +184,49 @@ const Home = () => {
 
 
   const theme = {
-  // Core Brand Colors
-  primaryLight: "#0D47A1",
-  primaryMain: "#1565C0",
-  primaryDark: "#0A3D91",
+  // Core Brand Colors — luxury gold
+  primaryLight: "#C9A96E",
+  primaryMain: "#D4AF70",
+  primaryDark: "#A68550",
 
   // Background Colors
-  bgMain: "#0A0A0A",
-  bgSecondary: "#111111",
-  footerGradient: "linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%)",
-  glassEffect: "rgba(255, 255, 255, 0.05)",
+  bgMain: "#0A0909",
+  bgSecondary: "#141210",
+  footerGradient: "linear-gradient(135deg, #0a0909 0%, #141210 100%)",
+  glassEffect: "rgba(255, 255, 255, 0.04)",
 
   // Text Colors
-  textPrimary: "#FFFFFF",
-  textSecondary: "rgba(255, 255, 255, 0.5)",
-  textMuted: "rgba(255, 255, 255, 0.5)",
+  textPrimary: "#F0EBE1",
+  textSecondary: "rgba(240, 235, 225, 0.65)",
+  textMuted: "rgba(240, 235, 225, 0.45)",
 
   // Border Colors
-  borderLight: "rgba(255, 255, 255, 0.08)",
-  borderStrong: "rgba(13, 71, 161, 0.4)",
+  borderLight: "rgba(201, 169, 110, 0.12)",
+  borderStrong: "rgba(201, 169, 110, 0.36)",
 
   // Navbar
-  navbarBg: "rgba(10, 10, 10, 0.9)",
-  navbarScrolled: "rgba(10, 10, 10, 0.98)",
-  backdropBlur: "blur(10px)",
-  navbarBorder: "1px solid rgba(13, 71, 161, 0.4)",
-  hoverColor: "#0D47A1",
+  navbarBg: "rgba(10, 9, 8, 0.88)",
+  navbarScrolled: "rgba(10, 9, 8, 0.97)",
+  backdropBlur: "blur(16px)",
+  navbarBorder: "1px solid rgba(201, 169, 110, 0.25)",
+  hoverColor: "#C9A96E",
   transition: "0.3s ease",
 
   // Mobile Drawer
-  drawerBg: "#111111",
-  activeBg: "rgba(13, 71, 161, 0.15)",
-  activeIcon: "#0D47A1",
+  drawerBg: "#141210",
+  activeBg: "rgba(201, 169, 110, 0.12)",
+  activeIcon: "#C9A96E",
 
   // Footer Effects
-  radialGlow: "radial-gradient(circle at 0% 50%, #0d47a1 0%, transparent 50%)",
-  particleColor: "rgba(13, 71, 161, 0.1)",
-  bottomLine: "linear-gradient(90deg, transparent, #0D47A1, transparent)",
+  radialGlow: "radial-gradient(circle at 0% 50%, #C9A96E 0%, transparent 50%)",
+  particleColor: "rgba(201, 169, 110, 0.08)",
+  bottomLine: "linear-gradient(90deg, transparent, #C9A96E, transparent)",
 
   // Newsletter
-  newsletterContainer: "rgba(255, 255, 255, 0.05)",
-  newsletterBorder: "1px solid rgba(13, 71, 161, 0.4)",
+  newsletterContainer: "rgba(255, 255, 255, 0.04)",
+  newsletterBorder: "1px solid rgba(201, 169, 110, 0.3)",
   newsletterRadius: "12px",
-  newsletterButton: "#0D47A1",
+  newsletterButton: "#C9A96E",
 };
 
 // Sample luxury hotel images (high‑quality placeholders)
@@ -398,7 +398,7 @@ const galleryImages = [
       left: 0,
       right: 0,
       bottom: 0,
-      background: "linear-gradient(180deg, rgba(10,10,10,0.2) 0%, rgba(13,71,161,0.4) 100%)",
+      background: "linear-gradient(180deg, rgba(10,9,8,0.15) 0%, rgba(10,9,8,0.7) 100%)",
       display: "flex",
       alignItems: "flex-end",
       justifyContent: "flex-start",
@@ -532,7 +532,7 @@ const galleryImages = [
             left: 0,
             right: 0,
             bottom: 0,
-            background: 'radial-gradient(circle at 50% 50%, rgba(13,71,161,0.1) 0%, transparent 50%)',
+            background: 'radial-gradient(circle at 50% 50%, rgba(201,169,110,0.07) 0%, transparent 55%)',
             pointerEvents: 'none',
           },
         }}
@@ -564,11 +564,12 @@ const galleryImages = [
                   <Typography
                     variant="h1"
                     sx={{
-                      color: 'white',
+                      color: '#F0EBE1',
                       fontSize: { xs: '2.5rem', md: '4.5rem', lg: '5.5rem' },
                       fontWeight: 700,
                       lineHeight: 1.1,
                       mb: 2,
+                      fontFamily: '"Playfair Display", Georgia, serif',
                     }}
                   >
                     Experience
@@ -576,10 +577,11 @@ const galleryImages = [
                       component="span"
                       sx={{
                         display: 'block',
-                        background: `linear-gradient(135deg, #fff 30%, ${COLORS.primaryLight} 90%)`,
+                        background: `linear-gradient(135deg, #F0EBE1 20%, ${COLORS.primaryLight} 75%)`,
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
                         fontSize: { xs: '3rem', md: '5rem', lg: '6rem' },
+                        fontFamily: '"Playfair Display", Georgia, serif',
                       }}
                     >
                       Ultimate Luxury
@@ -612,15 +614,17 @@ const galleryImages = [
                         endIcon={<ArrowForwardIcon />}
                         sx={{
                           background: `linear-gradient(135deg, ${COLORS.primaryLight} 30%, ${COLORS.primaryDark} 90%)`,
-                          color: 'white',
-                          fontSize: '1.0625rem',
+                          color: '#0A0909',
+                          fontWeight: 700,
+                          fontSize: '1.0rem',
+                          letterSpacing: '0.04em',
                           py: 1.5,
                           px: 4,
                           borderRadius: 2,
-                          boxShadow: '0 8px 20px rgba(13,71,161,0.3)',
+                          boxShadow: '0 8px 24px rgba(201,169,110,0.25)',
                           '&:hover': {
-                            background: `linear-gradient(135deg, ${COLORS.primaryDark} 30%, ${COLORS.primary} 90%)`,
-                            boxShadow: '0 12px 30px rgba(13,71,161,0.5)',
+                            background: `linear-gradient(135deg, #DFC085 0%, ${COLORS.primaryDark} 100%)`,
+                            boxShadow: '0 14px 36px rgba(201,169,110,0.4)',
                           },
                         }}
                       >
@@ -699,7 +703,7 @@ const galleryImages = [
               border: `2px solid ${COLORS.borderStrong}`,
               '&:hover': {
                 border: `2px solid ${COLORS.primaryLight}`,
-                backgroundColor: 'rgba(13,71,161,0.1)',
+                backgroundColor: 'rgba(201,169,110,0.08)',
               },
             }}
             aria-label="Scroll down"
@@ -722,10 +726,10 @@ const galleryImages = [
        <style>{`
         /* UNIQUE CLASS NAME - premium-hotel-about */
         .premium-hotel-about {
-          background-color: #0a0a0a;
+          background-color: #0A0909;
           padding: 6rem 2rem;
           font-family: 'Inter', 'Helvetica Neue', sans-serif;
-          color: #ffffff;
+          color: #F0EBE1;
           position: relative;
           overflow: hidden;
         }
@@ -737,7 +741,7 @@ const galleryImages = [
           left: 0;
           right: 0;
           bottom: 0;
-          background: radial-gradient(circle at 0% 50%, rgba(13,71,161,0.15) 0%, transparent 50%);
+          background: radial-gradient(circle at 0% 50%, rgba(201,169,110,0.08) 0%, transparent 50%);
           pointer-events: none;
         }
 
@@ -761,7 +765,7 @@ const galleryImages = [
           border-radius: 24px;
           overflow: hidden;
           box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
-          border: 1px solid rgba(13, 71, 161, 0.3);
+          border: 1px solid rgba(201, 169, 110, 0.25);
           opacity: 0;
           transform: translateX(-30px);
           transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
@@ -801,24 +805,25 @@ const galleryImages = [
 
         .premium-hotel-heading {
           font-size: clamp(2rem, 4vw, 3rem);
-          font-weight: 300;
-          letter-spacing: 1px;
+          font-family: 'Playfair Display', Georgia, serif;
+          font-weight: 400;
+          letter-spacing: 0.5px;
           margin: 0 0 0.5rem 0;
-          color: #ffffff;
+          color: #F0EBE1;
           line-height: 1.2;
         }
 
         .premium-hotel-heading span {
-          color: #0d47a1;
-          font-weight: 400;
+          color: #C9A96E;
+          font-weight: 600;
           display: block;
           margin-top: 0.5rem;
         }
 
         .premium-hotel-description {
-          font-size: 1.125rem;
-          line-height: 1.8;
-          color: rgba(255, 255, 255, 0.7);
+          font-size: 1.0625rem;
+          line-height: 1.85;
+          color: rgba(240, 235, 225, 0.7);
           margin: 2rem 0 2rem 0;
           max-width: 500px;
         }
@@ -836,13 +841,13 @@ const galleryImages = [
           align-items: center;
           justify-content: center;
           background: transparent;
-          color: #ffffff;
-          border: 2px solid #0d47a1;
+          color: #C9A96E;
+          border: 1.5px solid #C9A96E;
           border-radius: 50px;
           padding: 1rem 2.5rem;
-          font-size: 1rem;
+          font-size: 0.9375rem;
           font-weight: 500;
-          letter-spacing: 1.5px;
+          letter-spacing: 2px;
           text-transform: uppercase;
           text-decoration: none;
           cursor: pointer;
@@ -859,15 +864,15 @@ const galleryImages = [
           left: -100%;
           width: 100%;
           height: 100%;
-          background: #0d47a1;
+          background: linear-gradient(135deg, #C9A96E 0%, #A68550 100%);
           transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
           z-index: -1;
         }
 
         .premium-hotel-button:hover {
-          color: #ffffff;
+          color: #0A0909;
           transform: translateY(-2px);
-          box-shadow: 0 10px 30px rgba(13, 71, 161, 0.3);
+          box-shadow: 0 10px 30px rgba(201, 169, 110, 0.3);
         }
 
         .premium-hotel-button:hover::before {
@@ -879,9 +884,9 @@ const galleryImages = [
           position: absolute;
           bottom: 0;
           right: 0;
-          width: 300px;
-          height: 300px;
-          background: radial-gradient(circle at 100% 100%, rgba(13,71,161,0.1) 0%, transparent 70%);
+          width: 350px;
+          height: 350px;
+          background: radial-gradient(circle at 100% 100%, rgba(201,169,110,0.08) 0%, transparent 70%);
           pointer-events: none;
           z-index: 1;
         }
@@ -1223,7 +1228,7 @@ const galleryImages = [
                 alignItems: 'center',
                 '&:hover': {
                   border: `1px solid ${COLORS.borderStrong}`,
-                  boxShadow: '0 20px 40px rgba(13,71,161,0.2)',
+                  boxShadow: '0 20px 40px rgba(0,0,0,0.35), 0 0 30px rgba(201,169,110,0.08)',
                 },
               }}
             >
@@ -1232,12 +1237,12 @@ const galleryImages = [
                   display: 'inline-flex',
                   p: { xs: 1.5, sm: 1.75, md: 2 },
                   borderRadius: '50%',
-                  background: 'rgba(13,71,161,0.1)',
+                  background: 'rgba(201,169,110,0.1)',
                   color: COLORS.primaryLight,
                   mb: { xs: 1.5, sm: 2 },
                   transition: 'all 0.3s ease',
                   '&:hover': {
-                    background: 'rgba(13,71,161,0.2)',
+                    background: 'rgba(201,169,110,0.2)',
                     transform: 'scale(1.1)',
                   },
                 }}
@@ -1343,7 +1348,7 @@ const galleryImages = [
                   color: COLORS.primaryLight,
                   border: `1px solid ${COLORS.borderStrong}`,
                   '&:hover': {
-                    backgroundColor: 'rgba(13,71,161,0.1)',
+                    backgroundColor: 'rgba(201,169,110,0.1)',
                   },
                 }}
               >
@@ -1441,7 +1446,7 @@ const galleryImages = [
                   color: COLORS.primaryLight,
                   border: `1px solid ${COLORS.borderStrong}`,
                   '&:hover': {
-                    backgroundColor: 'rgba(13,71,161,0.1)',
+                    backgroundColor: 'rgba(201,169,110,0.1)',
                   },
                 }}
               >
@@ -1461,7 +1466,7 @@ const galleryImages = [
                   width: 10,
                   height: 10,
                   borderRadius: '50%',
-                  backgroundColor: index === currentTestimonial ? COLORS.primaryLight : 'rgba(13,71,161,0.3)',
+                  backgroundColor: index === currentTestimonial ? COLORS.primaryLight : 'rgba(201,169,110,0.25)',
                   cursor: 'pointer',
                   transition: 'background-color 0.3s ease',
                 }}

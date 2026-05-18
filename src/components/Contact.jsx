@@ -30,16 +30,16 @@ import axios from 'axios';
 
 // ===== Theme constants =====
 const COLORS = {
-  background: '#0A0A0A',
-  backgroundElevated: '#111111',
-  surface: '#111111',
-  text: '#FFFFFF',
-  textSecondary: 'rgba(255, 255, 255, 0.7)',
-  textMuted: 'rgba(255, 255, 255, 0.5)',
-  primaryLight: '#0D47A1',
-  primaryDark: '#0A3D91',
-  border: 'rgba(255, 255, 255, 0.08)',
-  borderStrong: 'rgba(13, 71, 161, 0.4)',
+  background: '#0A0909',
+  backgroundElevated: '#141210',
+  surface: '#141210',
+  text: '#F0EBE1',
+  textSecondary: 'rgba(240, 235, 225, 0.68)',
+  textMuted: 'rgba(240, 235, 225, 0.45)',
+  primaryLight: '#C9A96E',
+  primaryDark: '#A68550',
+  border: 'rgba(201, 169, 110, 0.12)',
+  borderStrong: 'rgba(201, 169, 110, 0.36)',
 };
 
 const SPACING = {
@@ -349,7 +349,7 @@ const Contact = () => {
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(135deg, #0a0a0a 0%, #0d1b2a 50%, #0d47a1 100%);
+          background: linear-gradient(135deg, #0a0a0a 0%, #0d1b2a 50%, #C9A96E 100%);
         }
 
         .luxury-contact-hero-bg::before {
@@ -359,7 +359,7 @@ const Contact = () => {
           left: 0;
           right: 0;
           bottom: 0;
-          background: radial-gradient(circle at 70% 50%, rgba(13,71,161,0.2) 0%, transparent 60%);
+          background: radial-gradient(circle at 70% 50%, rgba(201,169,110,0.2) 0%, transparent 60%);
         }
 
         .luxury-contact-hero-content {
@@ -374,9 +374,9 @@ const Contact = () => {
 
         .luxury-contact-hero-icon {
           font-size: 60px;
-          color: #0d47a1;
+          color: #C9A96E;
           margin-bottom: 1rem;
-          filter: drop-shadow(0 0 20px rgba(13,71,161,0.5));
+          filter: drop-shadow(0 0 20px rgba(201,169,110,0.5));
         }
 
         .luxury-contact-hero-title {
@@ -390,7 +390,7 @@ const Contact = () => {
 
         .luxury-contact-hero-title span {
           display: block;
-          background: linear-gradient(135deg, #fff 30%, #0d47a1 90%);
+          background: linear-gradient(135deg, #fff 30%, #C9A96E 90%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           font-size: clamp(2rem, 6vw, 4.5rem);
@@ -416,7 +416,7 @@ const Contact = () => {
         .luxury-contact-scroll-box {
           width: 30px;
           height: 50px;
-          border: 2px solid rgba(13,71,161,0.6);
+          border: 2px solid rgba(201,169,110,0.6);
           border-radius: 15px;
           position: relative;
           background-color: rgba(0,0,0,0.3);
@@ -431,7 +431,7 @@ const Contact = () => {
           transform: translateX(-50%);
           width: 4px;
           height: 8px;
-          background-color: #0d47a1;
+          background-color: #C9A96E;
           border-radius: 2px;
           animation: scrollBounce 2s infinite;
         }
@@ -472,7 +472,7 @@ const Contact = () => {
         }
 
         .luxury-contact-header h2 span {
-          color: #0d47a1;
+          color: #C9A96E;
           margin-left: 0.5rem;
         }
 
@@ -508,23 +508,23 @@ const Contact = () => {
           padding: 2rem;
           background: linear-gradient(135deg, rgba(18,18,18,0.8) 0%, rgba(13,13,13,0.8) 100%);
           backdrop-filter: blur(10px);
-          border: 1px solid rgba(13,71,161,0.3);
+          border: 1px solid rgba(201,169,110,0.3);
           border-radius: 16px;
           text-align: center;
           transition: all 0.3s ease;
         }
 
         .luxury-contact-card:hover {
-          border: 1px solid rgba(13,71,161,0.8);
-          box-shadow: 0 20px 40px rgba(13,71,161,0.2);
+          border: 1px solid rgba(201,169,110,0.8);
+          box-shadow: 0 20px 40px rgba(201,169,110,0.2);
         }
 
         .luxury-contact-icon-wrapper {
           display: inline-flex;
           padding: 1rem;
           border-radius: 50%;
-          background: rgba(13,71,161,0.15);
-          color: #0d47a1;
+          background: rgba(201,169,110,0.15);
+          color: #C9A96E;
           margin-bottom: 1rem;
         }
 
@@ -536,7 +536,7 @@ const Contact = () => {
         }
 
         .luxury-contact-card-content {
-          color: #0d47a1;
+          color: #C9A96E;
           font-weight: 500;
           margin-bottom: 0.5rem;
           font-size: 0.875rem;
@@ -581,7 +581,7 @@ const Contact = () => {
         }
 
         .luxury-form-header h3 span {
-          color: #0d47a1;
+          color: #C9A96E;
           margin-left: 1rem;
         }
 
@@ -593,7 +593,7 @@ const Contact = () => {
           padding: 2rem;
           background: linear-gradient(135deg, rgba(18,18,18,0.8) 0%, rgba(13,13,13,0.8) 100%);
           backdrop-filter: blur(10px);
-          border: 1px solid rgba(13,71,161,0.3);
+          border: 1px solid rgba(201,169,110,0.3);
           border-radius: 16px;
         }
 
@@ -630,7 +630,7 @@ const Contact = () => {
         }
 
         .luxury-map-header h3 span {
-          color: #0d47a1;
+          color: #C9A96E;
           margin-left: 1rem;
         }
 
@@ -641,7 +641,7 @@ const Contact = () => {
         .luxury-map-paper {
           overflow: hidden;
           border-radius: 16px;
-          border: 1px solid rgba(13,71,161,0.3);
+          border: 1px solid rgba(201,169,110,0.3);
           background: linear-gradient(135deg, rgba(18,18,18,0.8) 0%, rgba(13,13,13,0.8) 100%);
           backdrop-filter: blur(10px);
           height: 300px;
@@ -672,8 +672,8 @@ const Contact = () => {
         /* ===== Social Section ===== */
         .luxury-social-section {
           padding: 4rem 2rem;
-          border-top: 1px solid rgba(13,71,161,0.4);
-          border-bottom: 1px solid rgba(13,71,161,0.3);
+          border-top: 1px solid rgba(201,169,110,0.4);
+          border-bottom: 1px solid rgba(201,169,110,0.3);
         }
 
         .luxury-social-title {
@@ -694,8 +694,8 @@ const Contact = () => {
           width: 56px;
           height: 56px;
           border-radius: 50%;
-          background-color: rgba(13,71,161,0.1);
-          border: 1px solid rgba(13,71,161,0.3);
+          background-color: rgba(201,169,110,0.1);
+          border: 1px solid rgba(201,169,110,0.3);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -704,7 +704,7 @@ const Contact = () => {
         }
 
         .luxury-social-icon:hover {
-          background-color: rgba(13,71,161,0.2);
+          background-color: rgba(201,169,110,0.2);
           transform: translateY(-8px) scale(1.1);
         }
 
@@ -721,7 +721,7 @@ const Contact = () => {
           width: 6px;
           height: 6px;
           border-radius: 50%;
-          background: radial-gradient(circle, #0d47a1 0%, transparent 70%);
+          background: radial-gradient(circle, #C9A96E 0%, transparent 70%);
           opacity: 0.1;
           pointer-events: none;
           z-index: 1;
@@ -891,15 +891,15 @@ const Contact = () => {
                     icon={service.icon}
                     label={service.label}
                     sx={{
-                      backgroundColor: 'rgba(13,71,161,0.15)',
+                      backgroundColor: 'rgba(201,169,110,0.15)',
                       color: 'white',
-                      border: '1px solid rgba(13,71,161,0.3)',
+                      border: '1px solid rgba(201,169,110,0.3)',
                       '&:hover': {
-                        backgroundColor: 'rgba(13,71,161,0.25)',
-                        border: '1px solid rgba(13,71,161,0.8)',
+                        backgroundColor: 'rgba(201,169,110,0.25)',
+                        border: '1px solid rgba(201,169,110,0.8)',
                       },
                       '& .MuiChip-icon': {
-                        color: '#0d47a1',
+                        color: '#C9A96E',
                       },
                     }}
                   />
@@ -955,19 +955,19 @@ const Contact = () => {
                           '& .MuiOutlinedInput-root': {
                             color: 'white',
                             '& fieldset': {
-                              borderColor: 'rgba(13,71,161,0.3)',
+                              borderColor: 'rgba(201,169,110,0.3)',
                             },
                             '&:hover fieldset': {
-                              borderColor: '#0d47a1',
+                              borderColor: '#C9A96E',
                             },
                             '&.Mui-focused fieldset': {
-                              borderColor: '#0d47a1',
+                              borderColor: '#C9A96E',
                             },
                           },
                           '& .MuiInputLabel-root': {
                             color: 'rgba(255,255,255,0.7)',
                             '&.Mui-focused': {
-                              color: '#0d47a1',
+                              color: '#C9A96E',
                             },
                           },
                           '& .MuiFormHelperText-root': {
@@ -991,19 +991,19 @@ const Contact = () => {
                           '& .MuiOutlinedInput-root': {
                             color: 'white',
                             '& fieldset': {
-                              borderColor: 'rgba(13,71,161,0.3)',
+                              borderColor: 'rgba(201,169,110,0.3)',
                             },
                             '&:hover fieldset': {
-                              borderColor: '#0d47a1',
+                              borderColor: '#C9A96E',
                             },
                             '&.Mui-focused fieldset': {
-                              borderColor: '#0d47a1',
+                              borderColor: '#C9A96E',
                             },
                           },
                           '& .MuiInputLabel-root': {
                             color: 'rgba(255,255,255,0.7)',
                             '&.Mui-focused': {
-                              color: '#0d47a1',
+                              color: '#C9A96E',
                             },
                           },
                         }}
@@ -1023,19 +1023,19 @@ const Contact = () => {
                           '& .MuiOutlinedInput-root': {
                             color: 'white',
                             '& fieldset': {
-                              borderColor: 'rgba(13,71,161,0.3)',
+                              borderColor: 'rgba(201,169,110,0.3)',
                             },
                             '&:hover fieldset': {
-                              borderColor: '#0d47a1',
+                              borderColor: '#C9A96E',
                             },
                             '&.Mui-focused fieldset': {
-                              borderColor: '#0d47a1',
+                              borderColor: '#C9A96E',
                             },
                           },
                           '& .MuiInputLabel-root': {
                             color: 'rgba(255,255,255,0.7)',
                             '&.Mui-focused': {
-                              color: '#0d47a1',
+                              color: '#C9A96E',
                             },
                           },
                         }}
@@ -1055,19 +1055,19 @@ const Contact = () => {
                           '& .MuiOutlinedInput-root': {
                             color: 'white',
                             '& fieldset': {
-                              borderColor: 'rgba(13,71,161,0.3)',
+                              borderColor: 'rgba(201,169,110,0.3)',
                             },
                             '&:hover fieldset': {
-                              borderColor: '#0d47a1',
+                              borderColor: '#C9A96E',
                             },
                             '&.Mui-focused fieldset': {
-                              borderColor: '#0d47a1',
+                              borderColor: '#C9A96E',
                             },
                           },
                           '& .MuiInputLabel-root': {
                             color: 'rgba(255,255,255,0.7)',
                             '&.Mui-focused': {
-                              color: '#0d47a1',
+                              color: '#C9A96E',
                             },
                           },
                         }}
@@ -1089,19 +1089,19 @@ const Contact = () => {
                           '& .MuiOutlinedInput-root': {
                             color: 'white',
                             '& fieldset': {
-                              borderColor: 'rgba(13,71,161,0.3)',
+                              borderColor: 'rgba(201,169,110,0.3)',
                             },
                             '&:hover fieldset': {
-                              borderColor: '#0d47a1',
+                              borderColor: '#C9A96E',
                             },
                             '&.Mui-focused fieldset': {
-                              borderColor: '#0d47a1',
+                              borderColor: '#C9A96E',
                             },
                           },
                           '& .MuiInputLabel-root': {
                             color: 'rgba(255,255,255,0.7)',
                             '&.Mui-focused': {
-                              color: '#0d47a1',
+                              color: '#C9A96E',
                             },
                           },
                         }}
@@ -1120,18 +1120,18 @@ const Contact = () => {
                           disabled={isSubmitting}
                           endIcon={isSubmitting ? null : <SendIcon />}
                           sx={{
-                            background: 'linear-gradient(135deg, #0d47a1 30%, #1565c0 90%)',
+                            background: 'linear-gradient(135deg, #C9A96E 30%, #A68550 90%)',
                             color: 'white',
                             fontSize: '1.1rem',
                             py: 1.8,
                             borderRadius: 2,
-                            boxShadow: '0 8px 20px rgba(13,71,161,0.3)',
+                            boxShadow: '0 8px 20px rgba(201,169,110,0.3)',
                             '&:hover': {
-                              background: 'linear-gradient(135deg, #1565c0 30%, #1976d2 90%)',
-                              boxShadow: '0 12px 30px rgba(13,71,161,0.6)',
+                              background: 'linear-gradient(135deg, #A68550 30%, #C9A96E 90%)',
+                              boxShadow: '0 12px 30px rgba(201,169,110,0.6)',
                             },
                             '&.Mui-disabled': {
-                              background: 'rgba(13,71,161,0.3)',
+                              background: 'rgba(201,169,110,0.3)',
                             },
                           }}
                         >
@@ -1195,11 +1195,11 @@ const Contact = () => {
                         key={index}
                         label={landmark}
                         sx={{
-                          backgroundColor: 'rgba(13,71,161,0.1)',
+                          backgroundColor: 'rgba(201,169,110,0.1)',
                           color: 'white',
-                          border: '1px solid rgba(13,71,161,0.3)',
+                          border: '1px solid rgba(201,169,110,0.3)',
                           '&:hover': {
-                            backgroundColor: 'rgba(13,71,161,0.2)',
+                            backgroundColor: 'rgba(201,169,110,0.2)',
                           },
                         }}
                       />
@@ -1241,12 +1241,12 @@ const Contact = () => {
                       rel="noopener noreferrer"
                       sx={{
                         color: social.color,
-                        backgroundColor: 'rgba(13,71,161,0.1)',
-                        border: '1px solid rgba(13,71,161,0.3)',
+                        backgroundColor: 'rgba(201,169,110,0.1)',
+                        border: '1px solid rgba(201,169,110,0.3)',
                         width: 56,
                         height: 56,
                         '&:hover': {
-                          backgroundColor: 'rgba(13,71,161,0.2)',
+                          backgroundColor: 'rgba(201,169,110,0.2)',
                           border: `1px solid ${social.color}`,
                           boxShadow: `0 0 20px ${social.color}`,
                         },
@@ -1278,9 +1278,9 @@ const Contact = () => {
             icon={<CheckCircleIcon fontSize="inherit" />}
             severity="success"
             sx={{
-              backgroundColor: 'rgba(13,71,161,0.9)',
+              backgroundColor: 'rgba(201,169,110,0.9)',
               color: 'white',
-              border: '1px solid #0d47a1',
+              border: '1px solid #C9A96E',
               '& .MuiAlert-icon': {
                 color: 'white',
               },

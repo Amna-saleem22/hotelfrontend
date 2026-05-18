@@ -7,49 +7,49 @@ import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 
 // ===== Theme constants (from Luxury_Stay_Navbar_Footer_Theme.pdf) =====
 const THEME = {
-  // Core Brand Colors
-  primaryLight: '#0D47A1',
-  primaryMain: '#1565C0',
-  primaryDark: '#0A3D91',
+  // Core Brand Colors — luxury gold
+  primaryLight: '#C9A96E',
+  primaryMain: '#D4AF70',
+  primaryDark: '#A68550',
 
   // Background Colors
-  bgMain: '#0A0A0A',
-  bgSecondary: '#111111',
-  footerGradient: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%)',
-  glassEffect: 'rgba(255, 255, 255, 0.05)',
+  bgMain: '#0A0909',
+  bgSecondary: '#141210',
+  footerGradient: 'linear-gradient(135deg, #0a0909 0%, #141210 100%)',
+  glassEffect: 'rgba(255, 255, 255, 0.04)',
 
   // Text Colors
-  textPrimary: '#FFFFFF',
-  textSecondary: 'rgba(255, 255, 255, 0.5)',
-  textMuted: 'rgba(255, 255, 255, 0.5)',
+  textPrimary: '#F0EBE1',
+  textSecondary: 'rgba(240, 235, 225, 0.65)',
+  textMuted: 'rgba(240, 235, 225, 0.45)',
 
   // Border Colors
-  borderLight: 'rgba(255, 255, 255, 0.08)',
-  borderStrong: 'rgba(13, 71, 161, 0.4)',
+  borderLight: 'rgba(201, 169, 110, 0.12)',
+  borderStrong: 'rgba(201, 169, 110, 0.36)',
 
   // Navbar
-  navbarBg: 'rgba(10, 10, 10, 0.9)',
-  navbarScrolled: 'rgba(10, 10, 10, 0.98)',
-  backdropBlur: 'blur(10px)',
-  navbarBorder: '1px solid rgba(13, 71, 161, 0.4)',
-  hoverColor: '#0D47A1',
+  navbarBg: 'rgba(10, 9, 8, 0.88)',
+  navbarScrolled: 'rgba(10, 9, 8, 0.97)',
+  backdropBlur: 'blur(16px)',
+  navbarBorder: '1px solid rgba(201, 169, 110, 0.25)',
+  hoverColor: '#C9A96E',
   transition: '0.3s ease',
 
   // Mobile Drawer
-  drawerBg: '#111111',
-  activeBg: 'rgba(13, 71, 161, 0.15)',
-  activeIcon: '#0D47A1',
+  drawerBg: '#141210',
+  activeBg: 'rgba(201, 169, 110, 0.12)',
+  activeIcon: '#C9A96E',
 
   // Footer Effects
-  radialGlow: 'radial-gradient(circle at 0% 50%, #0d47a1 0%, transparent 50%)',
-  particleColor: 'rgba(13, 71, 161, 0.1)',
-  bottomLine: 'linear-gradient(90deg, transparent, #0D47A1, transparent)',
+  radialGlow: 'radial-gradient(circle at 0% 50%, #C9A96E 0%, transparent 50%)',
+  particleColor: 'rgba(201, 169, 110, 0.08)',
+  bottomLine: 'linear-gradient(90deg, transparent, #C9A96E, transparent)',
 
   // Newsletter
-  newsletterContainer: 'rgba(255, 255, 255, 0.05)',
-  newsletterBorder: '1px solid rgba(13, 71, 161, 0.4)',
+  newsletterContainer: 'rgba(255, 255, 255, 0.04)',
+  newsletterBorder: '1px solid rgba(201, 169, 110, 0.3)',
   newsletterRadius: '12px',
-  newsletterButton: '#0D47A1',
+  newsletterButton: '#C9A96E',
 };
 
 // ===== Sample review data =====
@@ -411,7 +411,7 @@ const LuxuryHotelReviews = () => {
 
         .luxury-review-card:hover {
           border-color: ${THEME.borderStrong};
-          box-shadow: 0 20px 30px -10px rgba(13, 71, 161, 0.3);
+          box-shadow: 0 20px 30px -10px rgba(201, 169, 110, 0.2);
           transform: translateY(-5px);
         }
 

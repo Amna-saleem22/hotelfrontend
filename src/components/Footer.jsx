@@ -25,13 +25,13 @@ import { Link } from 'react-router-dom';
 
 // ===== Theme constants (from your design system) =====
 const COLORS = {
-  text: '#FFFFFF',
-  textSecondary: 'rgba(255, 255, 255, 0.7)',
-  textMuted: 'rgba(255, 255, 255, 0.5)',
-  primaryLight: '#0D47A1',
-  primaryDark: '#0A3D91',
-  borderStrong: 'rgba(13, 71, 161, 0.4)',
-  glassEffect: 'rgba(255, 255, 255, 0.05)',
+  text: '#F0EBE1',
+  textSecondary: 'rgba(240, 235, 225, 0.68)',
+  textMuted: 'rgba(240, 235, 225, 0.45)',
+  primaryLight: '#C9A96E',
+  primaryDark: '#A68550',
+  borderStrong: 'rgba(201, 169, 110, 0.36)',
+  glassEffect: 'rgba(255, 255, 255, 0.04)',
 };
 
 const SPACING = {
@@ -98,7 +98,7 @@ const Footer = () => {
           right: 0;
           bottom: 0;
           opacity: 0.03;
-          background: radial-gradient(circle at 0% 50%, #0d47a1 0%, transparent 50%);
+          background: radial-gradient(circle at 0% 50%, rgba(201,169,110,0.5) 0%, transparent 50%);
           pointer-events: none;
         }
 
@@ -311,7 +311,7 @@ const Footer = () => {
         }
 
         .luxury-footer-badge {
-          background: rgba(13, 71, 161, 0.15);
+          background: rgba(201, 169, 110, 0.1);
           border: 1px solid ${COLORS.borderStrong};
           border-radius: 20px;
           padding: 0.35rem 1rem;
@@ -424,7 +424,7 @@ const Footer = () => {
                 width: '4px',
                 height: '4px',
                 borderRadius: '50%',
-                backgroundColor: '#0d47a1',
+                backgroundColor: 'rgba(201,169,110,0.25)',
                 animation: `float ${10 + i}s linear infinite`,
               }}
             />

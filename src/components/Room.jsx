@@ -36,16 +36,16 @@ import LightIcon from '@mui/icons-material/Light';
 
 // ===== Theme constants =====
 const COLORS = {
-  background: '#0A0A0A',
-  backgroundElevated: '#111111',
-  surface: '#111111',
-  text: '#FFFFFF',
-  textSecondary: 'rgba(255, 255, 255, 0.7)',
-  textMuted: 'rgba(255, 255, 255, 0.5)',
-  primaryLight: '#0D47A1',
-  primaryDark: '#0A3D91',
-  border: 'rgba(255, 255, 255, 0.08)',
-  borderStrong: 'rgba(13, 71, 161, 0.4)',
+  background: '#0A0909',
+  backgroundElevated: '#141210',
+  surface: '#141210',
+  text: '#F0EBE1',
+  textSecondary: 'rgba(240, 235, 225, 0.68)',
+  textMuted: 'rgba(240, 235, 225, 0.45)',
+  primaryLight: '#C9A96E',
+  primaryDark: '#A68550',
+  border: 'rgba(201, 169, 110, 0.12)',
+  borderStrong: 'rgba(201, 169, 110, 0.36)',
 };
 
 const SPACING = {
@@ -265,7 +265,7 @@ const RoomsPage = () => {
           left: 0;
           right: 0;
           bottom: 0;
-          background: radial-gradient(circle at 70% 50%, rgba(13,71,161,0.2) 0%, transparent 60%);
+          background: radial-gradient(circle at 70% 50%, rgba(201,169,110,0.15) 0%, transparent 60%);
         }
 
         .luxury-rooms-hero-content {
@@ -280,23 +280,24 @@ const RoomsPage = () => {
 
         .luxury-rooms-hero-icon {
           font-size: 70px;
-          color: #0d47a1;
+          color: #C9A96E;
           margin-bottom: 1rem;
-          filter: drop-shadow(0 0 20px rgba(13,71,161,0.5));
+          filter: drop-shadow(0 0 20px rgba(201,169,110,0.5));
         }
 
         .luxury-rooms-hero-title {
-          color: white;
+          color: #F0EBE1;
           font-size: clamp(2.5rem, 8vw, 5rem);
           font-weight: 700;
           line-height: 1.1;
           margin-bottom: 1rem;
-          text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+          text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+          font-family: 'Playfair Display', Georgia, serif;
         }
 
         .luxury-rooms-hero-title span {
           display: block;
-          background: linear-gradient(135deg, #fff 30%, #0d47a1 90%);
+          background: linear-gradient(135deg, #F0EBE1 30%, #C9A96E 90%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           font-size: clamp(2rem, 6vw, 4.5rem);
@@ -322,7 +323,7 @@ const RoomsPage = () => {
         .luxury-rooms-scroll-box {
           width: 30px;
           height: 50px;
-          border: 2px solid rgba(13,71,161,0.6);
+          border: 2px solid rgba(201,169,110,0.5);
           border-radius: 15px;
           position: relative;
           background-color: rgba(0,0,0,0.3);
@@ -337,7 +338,7 @@ const RoomsPage = () => {
           transform: translateX(-50%);
           width: 4px;
           height: 8px;
-          background-color: #0d47a1;
+          background-color: #C9A96E;
           border-radius: 2px;
           animation: scrollBounce 2s infinite;
         }
@@ -367,7 +368,7 @@ const RoomsPage = () => {
           left: 0;
           right: 0;
           height: 1px;
-          background: linear-gradient(90deg, transparent, #0d47a1, transparent);
+          background: linear-gradient(90deg, transparent, rgba(201,169,110,0.5), transparent);
         }
 
         .luxury-rooms-section-alt::before {
@@ -396,7 +397,7 @@ const RoomsPage = () => {
         }
 
         .luxury-rooms-header h2 span {
-          color: #0d47a1;
+          color: #C9A96E;
           margin-left: 0.5rem;
         }
 
@@ -475,7 +476,7 @@ const RoomsPage = () => {
         }
 
         .luxury-amenity-icon {
-          color: #0d47a1;
+          color: #C9A96E;
           font-size: 1rem;
         }
 
@@ -511,11 +512,12 @@ const RoomsPage = () => {
           position: absolute;
           top: 16px;
           right: 16px;
-          background: rgba(13,71,161,0.9);
-          color: white;
+          background: rgba(10,9,8,0.88);
+          border: 1px solid rgba(201,169,110,0.6);
+          color: #C9A96E;
           padding: 0.5rem 1rem;
           border-radius: 8px;
-          backdrop-filter: blur(5px);
+          backdrop-filter: blur(8px);
         }
 
         .luxury-price-badge h6 {
@@ -531,17 +533,18 @@ const RoomsPage = () => {
         /* ===== Card Styles ===== */
         .luxury-room-card {
           height: 100%;
-          background: linear-gradient(135deg, rgba(18,18,18,0.9) 0%, rgba(13,13,13,0.9) 100%);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(13,71,161,0.2);
+          background: linear-gradient(135deg, rgba(20,18,14,0.95) 0%, rgba(14,13,11,0.95) 100%);
+          backdrop-filter: blur(12px);
+          border: 1px solid rgba(201,169,110,0.15);
           border-radius: 16px;
           overflow: hidden;
-          transition: all 0.3s ease;
+          transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .luxury-room-card:hover {
-          border: 1px solid rgba(13,71,161,0.6);
-          box-shadow: 0 20px 40px rgba(13,71,161,0.3);
+          border: 1px solid rgba(201,169,110,0.5);
+          box-shadow: 0 24px 48px rgba(0,0,0,0.5), 0 0 40px rgba(201,169,110,0.1);
+          transform: translateY(-4px);
         }
 
         .luxury-room-image-wrapper {
@@ -573,18 +576,19 @@ const RoomsPage = () => {
         /* ===== Dining Card ===== */
         .luxury-dining-card {
           height: 100%;
-          background: linear-gradient(135deg, rgba(18,18,18,0.8) 0%, rgba(13,13,13,0.8) 100%);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(13,71,161,0.2);
+          background: linear-gradient(135deg, rgba(20,18,14,0.9) 0%, rgba(14,13,11,0.9) 100%);
+          backdrop-filter: blur(12px);
+          border: 1px solid rgba(201,169,110,0.15);
           border-radius: 16px;
           overflow: hidden;
-          transition: all 0.3s ease;
+          transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
           padding: 1.5rem;
         }
 
         .luxury-dining-card:hover {
-          border: 1px solid rgba(13,71,161,0.6);
-          box-shadow: 0 20px 40px rgba(13,71,161,0.2);
+          border: 1px solid rgba(201,169,110,0.5);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 30px rgba(201,169,110,0.08);
+          transform: translateY(-4px);
         }
 
         .luxury-dining-image-wrapper {
@@ -609,8 +613,9 @@ const RoomsPage = () => {
           position: absolute;
           top: 16px;
           left: 16px;
-          background: rgba(13,71,161,0.9);
-          color: white;
+          background: rgba(10,9,8,0.85);
+          border: 1px solid rgba(201,169,110,0.55);
+          color: #C9A96E;
           padding: 0.5rem;
           border-radius: 8px;
         }
@@ -624,15 +629,16 @@ const RoomsPage = () => {
 
         .luxury-cta-paper {
           padding: 3rem 2rem;
-          background: linear-gradient(135deg, rgba(13,71,161,0.1) 0%, rgba(13,71,161,0.05) 100%);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(13,71,161,0.3);
-          border-radius: 16px;
+          background: linear-gradient(135deg, rgba(20,16,10,0.95) 0%, rgba(14,12,9,0.95) 100%);
+          backdrop-filter: blur(12px);
+          border: 1px solid rgba(201,169,110,0.3);
+          border-radius: 20px;
           position: relative;
           overflow: hidden;
           text-align: center;
           max-width: 800px;
           margin: 0 auto;
+          box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(201,169,110,0.15);
         }
 
         @media (min-width: 900px) {
@@ -645,10 +651,10 @@ const RoomsPage = () => {
           position: absolute;
           top: -50px;
           right: -50px;
-          width: 200px;
-          height: 200px;
+          width: 250px;
+          height: 250px;
           border-radius: 50%;
-          background: radial-gradient(circle, rgba(13,71,161,0.2) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(201,169,110,0.12) 0%, transparent 70%);
         }
 
         .luxury-cta-title {
@@ -659,7 +665,7 @@ const RoomsPage = () => {
         }
 
         .luxury-cta-title span {
-          color: #0d47a1;
+          color: #C9A96E;
           margin-left: 1rem;
         }
 
@@ -685,7 +691,7 @@ const RoomsPage = () => {
           width: 6px;
           height: 6px;
           border-radius: 50%;
-          background: radial-gradient(circle, #0d47a1 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(201,169,110,0.6) 0%, transparent 70%);
           opacity: 0.1;
           pointer-events: none;
           z-index: 1;
@@ -861,7 +867,7 @@ const RoomsPage = () => {
                           {room.name}
                         </Typography>
                         <div className="luxury-room-rating">
-                          <Rating value={room.rating} readOnly size="small" sx={{ color: '#0d47a1', mr: 1 }} />
+                          <Rating value={room.rating} readOnly size="small" sx={{ color: '#C9A96E', mr: 1 }} />
                           <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.6)' }}>
                             ({room.reviews})
                           </Typography>
@@ -877,23 +883,23 @@ const RoomsPage = () => {
                           label={room.size}
                           size="small"
                           sx={{
-                            backgroundColor: 'rgba(13,71,161,0.1)',
-                            color: '#0d47a1',
-                            border: '1px solid rgba(13,71,161,0.3)',
+                            backgroundColor: 'rgba(201,169,110,0.08)',
+                            color: '#C9A96E',
+                            border: '1px solid rgba(201,169,110,0.3)',
                           }}
                         />
                         <Chip
                           label={room.capacity}
                           size="small"
                           sx={{
-                            backgroundColor: 'rgba(13,71,161,0.1)',
-                            color: '#0d47a1',
-                            border: '1px solid rgba(13,71,161,0.3)',
+                            backgroundColor: 'rgba(201,169,110,0.08)',
+                            color: '#C9A96E',
+                            border: '1px solid rgba(201,169,110,0.3)',
                           }}
                         />
                       </div>
 
-                      <Divider sx={{ borderColor: 'rgba(13,71,161,0.2)', my: 2 }} />
+                      <Divider sx={{ borderColor: 'rgba(201,169,110,0.15)', my: 2 }} />
 
                       <Typography variant="subtitle2" sx={{ color: 'white', mb: 1 }}>
                         Amenities:
@@ -921,14 +927,17 @@ const RoomsPage = () => {
                           variant="contained"
                           endIcon={<ArrowForwardIcon />}
                           sx={{
-                            background: 'linear-gradient(135deg, #0d47a1 30%, #1565c0 90%)',
-                            color: 'white',
+                            background: 'linear-gradient(135deg, #C9A96E 0%, #A68550 100%)',
+                            color: '#0A0909',
+                            fontWeight: 700,
+                            letterSpacing: '0.04em',
                             py: 1.5,
                             borderRadius: 2,
-                            boxShadow: '0 8px 20px rgba(13,71,161,0.3)',
+                            boxShadow: '0 8px 20px rgba(201,169,110,0.25)',
                             '&:hover': {
-                              background: 'linear-gradient(135deg, #1565c0 30%, #1976d2 90%)',
-                              boxShadow: '0 12px 30px rgba(13,71,161,0.6)',
+                              background: 'linear-gradient(135deg, #DFC085 0%, #C9A96E 100%)',
+                              boxShadow: '0 14px 36px rgba(201,169,110,0.4)',
+                              transform: 'translateY(-2px)',
                             },
                           }}
                         >
@@ -988,7 +997,7 @@ const RoomsPage = () => {
                       {category.name}
                     </Typography>
 
-                    <Typography variant="body2" sx={{ color: '#0d47a1', mb: 2, fontWeight: 500 }}>
+                    <Typography variant="body2" sx={{ color: '#C9A96E', mb: 2, fontWeight: 500 }}>
                       {category.time}
                     </Typography>
 
@@ -1002,11 +1011,13 @@ const RoomsPage = () => {
                         label="Reserve"
                         size="small"
                         sx={{
-                          backgroundColor: 'rgba(13,71,161,0.1)',
-                          color: '#0d47a1',
-                          border: '1px solid rgba(13,71,161,0.3)',
+                          backgroundColor: 'rgba(201,169,110,0.08)',
+                          color: '#C9A96E',
+                          border: '1px solid rgba(201,169,110,0.28)',
+                          transition: 'all 0.25s ease',
                           '&:hover': {
-                            backgroundColor: 'rgba(13,71,161,0.2)',
+                            backgroundColor: 'rgba(201,169,110,0.15)',
+                            border: '1px solid rgba(201,169,110,0.55)',
                           },
                         }}
                       />
@@ -1014,9 +1025,10 @@ const RoomsPage = () => {
                         variant="text"
                         endIcon={<ArrowForwardIcon />}
                         sx={{
-                          color: '#0d47a1',
+                          color: '#C9A96E',
+                          fontWeight: 500,
                           '&:hover': {
-                            color: '#1976d2',
+                            color: '#DFC085',
                           },
                         }}
                       >
@@ -1042,16 +1054,18 @@ const RoomsPage = () => {
                     icon={item.icon}
                     label={item.label}
                     sx={{
-                      backgroundColor: 'rgba(13,71,161,0.1)',
-                      color: 'white',
-                      border: '1px solid rgba(13,71,161,0.3)',
+                      backgroundColor: 'rgba(201,169,110,0.08)',
+                      color: '#F0EBE1',
+                      border: '1px solid rgba(201,169,110,0.25)',
                       py: 2,
+                      transition: 'all 0.3s ease',
                       '&:hover': {
-                        backgroundColor: 'rgba(13,71,161,0.2)',
-                        border: '1px solid rgba(13,71,161,0.8)',
+                        backgroundColor: 'rgba(201,169,110,0.15)',
+                        border: '1px solid rgba(201,169,110,0.6)',
+                        transform: 'translateY(-2px)',
                       },
                       '& .MuiChip-icon': {
-                        color: '#0d47a1',
+                        color: '#C9A96E',
                       },
                     }}
                   />
@@ -1095,16 +1109,19 @@ const RoomsPage = () => {
                     size="large"
                     endIcon={<DiamondIcon />}
                     sx={{
-                      background: 'linear-gradient(135deg, #0d47a1 30%, #1565c0 90%)',
-                      color: 'white',
-                      fontSize: '1.2rem',
+                      background: 'linear-gradient(135deg, #C9A96E 0%, #A68550 100%)',
+                      color: '#0A0909',
+                      fontSize: '1.1rem',
+                      fontWeight: 700,
+                      letterSpacing: '0.05em',
                       py: 2,
                       px: 6,
                       borderRadius: 3,
-                      boxShadow: '0 8px 30px rgba(13,71,161,0.4)',
+                      boxShadow: '0 8px 30px rgba(201,169,110,0.3)',
                       '&:hover': {
-                        background: 'linear-gradient(135deg, #1565c0 30%, #1976d2 90%)',
-                        boxShadow: '0 15px 40px rgba(13,71,161,0.6)',
+                        background: 'linear-gradient(135deg, #DFC085 0%, #C9A96E 100%)',
+                        boxShadow: '0 16px 45px rgba(201,169,110,0.45)',
+                        transform: 'translateY(-2px)',
                       },
                     }}
                   >
