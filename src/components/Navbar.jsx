@@ -1,8 +1,3 @@
-
-
-
-
-
 import React, { useState, useEffect } from 'react';
 import {
   AppBar,
@@ -19,6 +14,7 @@ import {
   Box,
   useMediaQuery,
   Avatar,
+  Tooltip,
 } from '@mui/material';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -28,14 +24,16 @@ import InfoIcon from '@mui/icons-material/Info';
 import HotelIcon from '@mui/icons-material/Hotel';
 import BadgeIcon from '@mui/icons-material/Badge';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-
 import ArticleIcon from '@mui/icons-material/Article';
 import RateReviewIcon from '@mui/icons-material/RateReview';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import LoginIcon from '@mui/icons-material/Login';
 import DiamondIcon from '@mui/icons-material/Diamond';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { Link, useLocation } from 'react-router-dom';
 import { CONTAINER, COLORS } from '../theme/designSystem';
+import { useThemeMode } from '../context/ThemeContext';
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -43,67 +41,66 @@ const Navbar = () => {
   const location = useLocation();
   const isMobile = useMediaQuery('(max-width:900px)');
   const { scrollY } = useScroll();
+  const { mode, toggleMode, isDark } = useThemeMode();
 
-  const token = localStorage.getItem('token'); // <-- login check
- const role = localStorage.getItem("role");
- const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("role");
-    window.location.href = "/";
+  const token = localStorage.getItem('token');
+  const role = localStorage.getItem('role');
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    window.location.href = '/';
   };
-  // ================= NAV ITEMS =================
+
   const publicItems = [
     { text: 'Home', path: '/', icon: <HomeIcon /> },
     { text: 'About', path: '/about', icon: <InfoIcon /> },
     { text: 'Rooms', path: '/rooms', icon: <HotelIcon /> },
-  
     { text: 'Reviews', path: '/reviews', icon: <RateReviewIcon /> },
     { text: 'Contact', path: '/contact', icon: <ContactMailIcon /> },
     { text: 'Login', path: '/login', icon: <LoginIcon /> },
   ];
-// ===== STAFF =====
   const staffItems = [
-    { text: "Staff Panel", path: "/staff", icon: <BadgeIcon /> },
-    { text: "Logout", action: handleLogout, icon: <LoginIcon /> },
+    { text: 'Staff Panel', path: '/staff', icon: <BadgeIcon /> },
+    { text: 'Logout', action: handleLogout, icon: <LoginIcon /> },
   ];
-   const adminItems = [
-    { text: "Overview", path: "/admin", icon: <AdminPanelSettingsIcon /> },
-    { text: "Staff Management", path: "/admincreatestaff", icon: <BadgeIcon /> }, 
-   // { text: "Staff List", path: "/adminstafflist", icon: <BadgeIcon /> },
-    { text: "Hotels Rooms", path: "/adminrooms", icon: <HotelIcon /> },
-      { text: "Payments", path: "/adminpayment", icon: <AdminPanelSettingsIcon /> },
-    { text: "All Booking", path: "/adminstat", icon: <DiamondIcon /> },
-    { text: "Guest Feedback", path: "/adminfeedback", icon: <RateReviewIcon /> },
-     { text: 'Followers', path: '/adminusers', icon: <AdminPanelSettingsIcon /> },
-     { text: "Logout", action: handleLogout, icon: <LoginIcon /> },
+  const adminItems = [
+    { text: 'Overview', path: '/admin', icon: <AdminPanelSettingsIcon /> },
+    { text: 'Staff Management', path: '/admincreatestaff', icon: <BadgeIcon /> },
+    { text: 'Hotels Rooms', path: '/adminrooms', icon: <HotelIcon /> },
+    { text: 'Payments', path: '/adminpayment', icon: <AdminPanelSettingsIcon /> },
+    { text: 'All Booking', path: '/adminstat', icon: <DiamondIcon /> },
+    { text: 'Guest Feedback', path: '/adminfeedback', icon: <RateReviewIcon /> },
+    { text: 'Followers', path: '/adminusers', icon: <AdminPanelSettingsIcon /> },
+    { text: 'Logout', action: handleLogout, icon: <LoginIcon /> },
   ];
-
   const userItems = [
     { text: 'Dashboard', path: '/dashboard', icon: <HomeIcon /> },
     { text: 'Booking', path: '/booking', icon: <HotelIcon /> },
-   
     { text: 'Feedback', path: '/feedback', icon: <RateReviewIcon /> },
-     { text: "Logout", action: handleLogout, icon: <LoginIcon /> },
-      
+    { text: 'Logout', action: handleLogout, icon: <LoginIcon /> },
   ];
 
   let navItems = token ? userItems : publicItems;
-if (token) {
-    if (role === "admin") navItems = adminItems;
-    else if (role === "staff") navItems = staffItems;
+  if (token) {
+    if (role === 'admin') navItems = adminItems;
+    else if (role === 'staff') navItems = staffItems;
     else navItems = userItems;
   }
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
 
-  // Scroll transforms
+  const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
+
+  // Dynamic scroll-based navbar background per mode
+  const darkBgStart = 'rgba(10, 9, 8, 0.85)';
+  const darkBgEnd   = 'rgba(10, 9, 8, 0.97)';
+  const lightBgStart = 'rgba(247, 244, 239, 0.85)';
+  const lightBgEnd   = 'rgba(247, 244, 239, 0.97)';
+
   const navbarBackground = useTransform(
     scrollY,
     [0, 100],
-    ['rgba(10, 9, 8, 0.88)', 'rgba(10, 9, 8, 0.97)']
+    isDark ? [darkBgStart, darkBgEnd] : [lightBgStart, lightBgEnd]
   );
-  const navbarBlur = useTransform(scrollY, [0, 100], ['blur(8px)', 'blur(16px)']);
+  const navbarBlur = useTransform(scrollY, [0, 100], ['blur(8px)', 'blur(18px)']);
   const navbarBorder = useTransform(
     scrollY,
     [0, 100],
@@ -116,12 +113,19 @@ if (token) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Animation variants
-  const logoVariants = { initial: { opacity: 0, x: -20 }, animate: { opacity: 1, x: 0, transition: { duration: 0.6 } }, hover: { scale: 1.05 } };
+  // Text colors per mode
+  const navTextColor = isDark ? 'rgba(240,235,225,0.82)' : 'rgba(26,22,18,0.72)';
+  const navTextActive = isDark ? COLORS.primaryLight : COLORS.primaryDark;
+
+  const logoVariants = {
+    initial: { opacity: 0, x: -20 },
+    animate: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+    hover: { scale: 1.05 },
+  };
   const navItemVariants = {
     initial: { opacity: 0, y: -20 },
     animate: (custom) => ({ opacity: 1, y: 0, transition: { delay: custom * 0.1, duration: 0.5 } }),
-    hover: { scale: 1.1, color: COLORS.primaryLight, transition: { duration: 0.2 } },
+    hover: { scale: 1.08, transition: { duration: 0.2 } },
     tap: { scale: 0.95 },
   };
   const mobileMenuVariants = {
@@ -130,8 +134,18 @@ if (token) {
     exit: { x: '100%', transition: { duration: 0.3 } },
   };
 
+  const drawerBg = isDark ? '#111' : '#F7F4EF';
+  const drawerTextColor = isDark ? '#fff' : '#1A1612';
+
   const drawerContent = (
-    <Box component={motion.div} variants={mobileMenuVariants} initial="hidden" animate="visible" exit="exit" sx={{ width: '100%', height: '100%', background: '#111', position: 'relative' }}>
+    <Box
+      component={motion.div}
+      variants={mobileMenuVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      sx={{ width: '100%', height: '100%', background: drawerBg, position: 'relative' }}
+    >
       <IconButton onClick={handleDrawerToggle} sx={{ position: 'absolute', right: 2, top: 2, color: COLORS.primaryLight, zIndex: 10 }}>
         <CloseIcon />
       </IconButton>
@@ -142,7 +156,7 @@ if (token) {
             <Avatar sx={{ bgcolor: COLORS.primaryLight, width: 50, height: 50, mr: 2 }}>
               <DiamondIcon />
             </Avatar>
-            <Typography variant="h5" sx={{ fontWeight: 700, background: `linear-gradient(135deg, #F0EBE1 30%, ${COLORS.primaryLight} 90%)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: '"Playfair Display", Georgia, serif', letterSpacing: '0.08em' }}>
+            <Typography variant="h5" sx={{ fontWeight: 700, background: `linear-gradient(135deg, ${isDark ? '#F0EBE1' : '#1A1612'} 30%, ${COLORS.primaryLight} 90%)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: '"Playfair Display", Georgia, serif', letterSpacing: '0.08em' }}>
               LUXURY STAY
             </Typography>
           </Box>
@@ -153,55 +167,79 @@ if (token) {
             <motion.div key={item.text} initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: index * 0.1 + 0.3 }} whileHover={{ x: 10 }}>
               <ListItem
                 button
-                component={Link}
+                component={item.path ? Link : 'div'}
                 to={item.path}
-                onClick={() => {
-                  handleDrawerToggle();
-                  if (item.action) item.action();
-                }}
-                sx={{
-                  py: 2,
-                  px: 3,
-                  mb: 1,
-                  borderRadius: 2,
-                  backgroundColor: location.pathname === item.path ? 'rgba(201,169,110,0.12)' : 'transparent',
-                }}
+                onClick={() => { handleDrawerToggle(); if (item.action) item.action(); }}
+                sx={{ py: 2, px: 3, mb: 1, borderRadius: 2, backgroundColor: location.pathname === item.path ? 'rgba(201,169,110,0.12)' : 'transparent' }}
               >
-                <ListItemIcon sx={{ color: location.pathname === item.path ? COLORS.primaryLight : '#fff', minWidth: 40 }}>{item.icon}</ListItemIcon>
-                <ListItemText primary={item.text} primaryTypographyProps={{ sx: { color: location.pathname === item.path ? COLORS.primaryLight : '#fff', fontWeight: 500 } }} />
+                <ListItemIcon sx={{ color: location.pathname === item.path ? COLORS.primaryLight : drawerTextColor, minWidth: 40 }}>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.text} primaryTypographyProps={{ sx: { color: location.pathname === item.path ? COLORS.primaryLight : drawerTextColor, fontWeight: 500 } }} />
               </ListItem>
             </motion.div>
           ))}
         </List>
+
+        {/* Mobile theme toggle */}
+        <Box sx={{ mt: 3, display: 'flex', justifyContent: 'center' }}>
+          <Tooltip title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}>
+            <IconButton
+              onClick={toggleMode}
+              sx={{
+                color: COLORS.primaryLight,
+                border: `1px solid ${COLORS.borderStrong}`,
+                borderRadius: '50%',
+                p: 1.2,
+                transition: 'all 0.3s ease',
+                '&:hover': { backgroundColor: 'rgba(201,169,110,0.12)', transform: 'rotate(20deg)' },
+              }}
+            >
+              {isDark ? <LightModeIcon /> : <DarkModeIcon />}
+            </IconButton>
+          </Tooltip>
+        </Box>
       </Box>
     </Box>
   );
 
   return (
-    <motion.div style={{ position: 'sticky', top: 0, zIndex: 1100, backgroundColor: navbarBackground, backdropFilter: navbarBlur, borderBottom: navbarBorder }}>
+    <motion.div
+      style={{
+        position: 'sticky',
+        top: 0,
+        zIndex: 1100,
+        backgroundColor: navbarBackground,
+        backdropFilter: navbarBlur,
+        borderBottom: navbarBorder,
+        transition: 'background-color 0.35s ease',
+      }}
+    >
       <AppBar position="static" elevation={0} sx={{ background: 'transparent', boxShadow: 'none' }}>
         <Container maxWidth={CONTAINER.wide}>
           <Toolbar disableGutters sx={{ py: 1.25, minHeight: { xs: 64, md: 72 } }}>
+            {/* Logo */}
             <motion.div variants={logoVariants} initial="initial" animate="animate" whileHover="hover" style={{ display: 'flex', alignItems: 'center' }}>
               <Box component={Link} to="/" sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
                 <Avatar sx={{ bgcolor: COLORS.primaryLight, width: { xs: 40, md: 48 }, height: { xs: 40, md: 48 }, mr: 1.5 }}>
                   <DiamondIcon sx={{ fontSize: { xs: 20, md: 24 } }} />
                 </Avatar>
-                <Typography variant="h6" sx={{ fontWeight: 700, color: COLORS.primaryLight, fontFamily: '"Playfair Display", Georgia, serif', letterSpacing: '0.08em', fontSize: { xs: '1.1rem', md: '1.2rem' } }}>LUXURY STAY</Typography>
+                <Typography variant="h6" sx={{ fontWeight: 700, color: COLORS.primaryLight, fontFamily: '"Playfair Display", Georgia, serif', letterSpacing: '0.08em', fontSize: { xs: '1.1rem', md: '1.2rem' } }}>
+                  LUXURY STAY
+                </Typography>
               </Box>
             </motion.div>
 
+            {/* Desktop nav */}
             {!isMobile && (
-              <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'flex-end', gap: 0.5 }}>
+              <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 0.5 }}>
                 {navItems.map((item, index) => (
                   <motion.div key={item.text} custom={index} variants={navItemVariants} initial="initial" animate="animate" whileHover="hover" whileTap="tap">
                     <Button
-                      component={Link}
+                      component={item.path ? Link : 'button'}
                       to={item.path}
                       onClick={item.action || null}
                       size="medium"
                       sx={{
-                        color: location.pathname === item.path ? COLORS.primaryLight : 'rgba(240,235,225,0.82)',
+                        color: location.pathname === item.path ? navTextActive : navTextColor,
                         fontWeight: location.pathname === item.path ? 600 : 400,
                         fontSize: '0.875rem',
                         letterSpacing: '0.04em',
@@ -220,7 +258,7 @@ if (token) {
                           borderRadius: '2px',
                           transformOrigin: 'center',
                         },
-                        '&:hover': { color: COLORS.primaryLight, background: 'transparent' },
+                        '&:hover': { color: navTextActive, background: 'transparent' },
                         '&:hover::after': { transform: 'translateX(-50%) scaleX(1)' },
                       }}
                     >
@@ -228,19 +266,76 @@ if (token) {
                     </Button>
                   </motion.div>
                 ))}
+
+                {/* Theme toggle button */}
+                <Tooltip title={isDark ? 'Light Mode' : 'Dark Mode'} arrow>
+                  <motion.div whileHover={{ scale: 1.1, rotate: 15 }} whileTap={{ scale: 0.9 }} style={{ marginLeft: 8 }}>
+                    <IconButton
+                      onClick={toggleMode}
+                      aria-label="Toggle theme"
+                      sx={{
+                        color: COLORS.primaryLight,
+                        border: `1.5px solid ${COLORS.borderStrong}`,
+                        borderRadius: '50%',
+                        width: 38,
+                        height: 38,
+                        transition: 'all 0.3s ease',
+                        '&:hover': {
+                          backgroundColor: 'rgba(201,169,110,0.12)',
+                          borderColor: COLORS.primaryLight,
+                          boxShadow: '0 0 12px rgba(201,169,110,0.25)',
+                        },
+                      }}
+                    >
+                      {isDark ? <LightModeIcon sx={{ fontSize: 18 }} /> : <DarkModeIcon sx={{ fontSize: 18 }} />}
+                    </IconButton>
+                  </motion.div>
+                </Tooltip>
               </Box>
             )}
 
+            {/* Mobile: toggle + hamburger */}
             {isMobile && (
-              <IconButton onClick={handleDrawerToggle} sx={{ ml: 'auto', color: COLORS.primaryLight, border: `1px solid ${COLORS.borderStrong}` }} aria-label="Open menu">
-                <MenuIcon />
-              </IconButton>
+              <Box sx={{ ml: 'auto', display: 'flex', alignItems: 'center', gap: 1 }}>
+                <Tooltip title={isDark ? 'Light Mode' : 'Dark Mode'}>
+                  <IconButton
+                    onClick={toggleMode}
+                    aria-label="Toggle theme"
+                    sx={{
+                      color: COLORS.primaryLight,
+                      border: `1px solid ${COLORS.borderStrong}`,
+                      width: 36,
+                      height: 36,
+                      transition: 'all 0.3s ease',
+                      '&:hover': { backgroundColor: 'rgba(201,169,110,0.1)' },
+                    }}
+                  >
+                    {isDark ? <LightModeIcon sx={{ fontSize: 17 }} /> : <DarkModeIcon sx={{ fontSize: 17 }} />}
+                  </IconButton>
+                </Tooltip>
+                <IconButton onClick={handleDrawerToggle} sx={{ color: COLORS.primaryLight, border: `1px solid ${COLORS.borderStrong}` }} aria-label="Open menu">
+                  <MenuIcon />
+                </IconButton>
+              </Box>
             )}
           </Toolbar>
         </Container>
       </AppBar>
 
-      <AnimatePresence>{mobileOpen && <Drawer variant="temporary" anchor="right" open={mobileOpen} onClose={handleDrawerToggle} ModalProps={{ keepMounted: true }} sx={{ display: { xs: 'block', md: 'none' }, '& .MuiDrawer-paper': { width: '100%', maxWidth: 400, backgroundColor: 'transparent', boxShadow: 'none' } }}>{drawerContent}</Drawer>}</AnimatePresence>
+      <AnimatePresence>
+        {mobileOpen && (
+          <Drawer
+            variant="temporary"
+            anchor="right"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            ModalProps={{ keepMounted: true }}
+            sx={{ display: { xs: 'block', md: 'none' }, '& .MuiDrawer-paper': { width: '100%', maxWidth: 400, backgroundColor: 'transparent', boxShadow: 'none' } }}
+          >
+            {drawerContent}
+          </Drawer>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };

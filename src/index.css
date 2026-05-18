@@ -17,53 +17,394 @@ body {
 }
 
 /* Custom scrollbar — gold accent */
-::-webkit-scrollbar {
-  width: 7px;
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: #0a0909; }
+::-webkit-scrollbar-thumb { background: rgba(201, 169, 110, 0.38); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(201, 169, 110, 0.6); }
+
+::selection { background: rgba(201, 169, 110, 0.25); color: #F0EBE1; }
+
+img { display: block; max-width: 100%; }
+
+:focus-visible { outline: 2px solid #C9A96E; outline-offset: 2px; border-radius: 2px; }
+
+code { font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; }
+
+a { text-decoration: none; color: inherit; }
+
+button, a, input { transition: all 0.25s ease; }
+
+
+/* ============================================================
+   SMOOTH THEME TRANSITION — applied to key structural elements
+   ============================================================ */
+.premium-hotel-about,
+.luxury-rooms-root,
+.luxury-rooms-section,
+.luxury-rooms-section-alt,
+.luxury-contact-root,
+.luxury-contact-section,
+.luxury-contact-section-alt,
+.luxury-about-root,
+.luxury-section,
+.luxury-section-alt,
+.luxury-review-section,
+.luxury-room-card,
+.luxury-dining-card,
+.luxury-cta-section,
+.luxury-cta-paper,
+.luxury-contact-card,
+.luxury-achievements-paper,
+.luxury-review-card,
+.luxury-filter-bar {
+  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
-::-webkit-scrollbar-track {
-  background: #0a0909;
+
+/* ============================================================
+   LIGHT MODE OVERRIDES — [data-theme="light"] on <html>
+   ============================================================ */
+
+/* Body & scrollbar */
+[data-theme="light"] body {
+  background-color: #F7F4EF;
+  color: #1A1612;
 }
 
-::-webkit-scrollbar-thumb {
-  background: rgba(201, 169, 110, 0.38);
-  border-radius: 4px;
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: #EEE9E2;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(201, 169, 110, 0.6);
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: rgba(201, 169, 110, 0.45);
 }
 
-/* Text selection */
-::selection {
-  background: rgba(201, 169, 110, 0.25);
-  color: #F0EBE1;
+[data-theme="light"] ::selection {
+  background: rgba(201, 169, 110, 0.3);
+  color: #1A1612;
 }
 
-/* Smooth image rendering */
-img {
-  display: block;
-  max-width: 100%;
+
+/* ---- HOME: About section ---- */
+[data-theme="light"] .premium-hotel-about {
+  background-color: #F7F4EF !important;
+  color: #1A1612 !important;
 }
 
-/* Focus ring */
-:focus-visible {
-  outline: 2px solid #C9A96E;
-  outline-offset: 2px;
-  border-radius: 2px;
+[data-theme="light"] .premium-hotel-heading {
+  color: #1A1612 !important;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+[data-theme="light"] .premium-hotel-description {
+  color: rgba(26, 22, 18, 0.72) !important;
 }
 
-/* Anchor base */
-a {
-  text-decoration: none;
+[data-theme="light"] .premium-hotel-accent {
+  background: radial-gradient(ellipse, rgba(201, 169, 110, 0.1) 0%, transparent 70%) !important;
+}
+
+
+/* ---- ROOMS ---- */
+[data-theme="light"] .luxury-rooms-root {
+  background-color: #F7F4EF !important;
+}
+
+[data-theme="light"] .luxury-rooms-section {
+  background: #F7F4EF !important;
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .luxury-rooms-section-alt {
+  background: #EEE9E2 !important;
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .luxury-rooms-section .luxury-rooms-header h2,
+[data-theme="light"] .luxury-rooms-section .luxury-rooms-header p,
+[data-theme="light"] .luxury-rooms-section-alt .luxury-rooms-header h2,
+[data-theme="light"] .luxury-rooms-section-alt .luxury-rooms-header p {
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .luxury-room-card {
+  background: rgba(255, 253, 249, 0.98) !important;
+  border-color: rgba(201, 169, 110, 0.2) !important;
+  box-shadow: 0 4px 20px rgba(26, 22, 18, 0.07) !important;
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .luxury-room-card:hover {
+  border-color: rgba(201, 169, 110, 0.45) !important;
+  box-shadow: 0 24px 48px rgba(26, 22, 18, 0.14) !important;
+}
+
+[data-theme="light"] .luxury-dining-card {
+  background: rgba(255, 253, 249, 0.98) !important;
+  border-color: rgba(201, 169, 110, 0.18) !important;
+  box-shadow: 0 4px 20px rgba(26, 22, 18, 0.07) !important;
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .luxury-dining-card:hover {
+  box-shadow: 0 20px 44px rgba(26, 22, 18, 0.13) !important;
+}
+
+[data-theme="light"] .luxury-cta-section {
+  background: #EEE9E2 !important;
+}
+
+[data-theme="light"] .luxury-cta-paper {
+  background: rgba(255, 253, 249, 0.97) !important;
+  border-color: rgba(201, 169, 110, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(26, 22, 18, 0.1) !important;
+  color: #1A1612 !important;
+}
+
+
+/* ---- CONTACT ---- */
+[data-theme="light"] .luxury-contact-root {
+  background-color: #F7F4EF !important;
+}
+
+[data-theme="light"] .luxury-contact-section {
+  background: #F7F4EF !important;
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .luxury-contact-section-alt {
+  background: #EEE9E2 !important;
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .luxury-contact-section h2,
+[data-theme="light"] .luxury-contact-section h3,
+[data-theme="light"] .luxury-contact-section p,
+[data-theme="light"] .luxury-contact-section-alt h2,
+[data-theme="light"] .luxury-contact-section-alt h3,
+[data-theme="light"] .luxury-contact-section-alt p {
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .luxury-contact-card {
+  background: rgba(255, 253, 249, 0.98) !important;
+  border-color: rgba(201, 169, 110, 0.2) !important;
+  box-shadow: 0 4px 24px rgba(26, 22, 18, 0.07) !important;
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .luxury-contact-card:hover {
+  box-shadow: 0 20px 44px rgba(26, 22, 18, 0.13) !important;
+}
+
+[data-theme="light"] .luxury-contact-card-title {
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .luxury-contact-card-content {
+  color: rgba(26, 22, 18, 0.8) !important;
+}
+
+[data-theme="light"] .luxury-contact-card-description {
+  color: rgba(26, 22, 18, 0.62) !important;
+}
+
+
+/* ---- ABOUT ---- */
+[data-theme="light"] .luxury-about-root {
+  background-color: #F7F4EF !important;
+}
+
+[data-theme="light"] .luxury-section {
+  background: #F7F4EF !important;
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .luxury-section-alt {
+  background: #EEE9E2 !important;
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .luxury-section h2,
+[data-theme="light"] .luxury-section h3,
+[data-theme="light"] .luxury-section p,
+[data-theme="light"] .luxury-section-alt h2,
+[data-theme="light"] .luxury-section-alt h3,
+[data-theme="light"] .luxury-section-alt p {
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .luxury-achievements-paper {
+  background: rgba(255, 253, 249, 0.98) !important;
+  border-color: rgba(201, 169, 110, 0.2) !important;
+  box-shadow: 0 8px 32px rgba(26, 22, 18, 0.08) !important;
+}
+
+[data-theme="light"] .luxury-achievement-number {
+  color: #C9A96E !important;
+}
+
+[data-theme="light"] .luxury-achievement-label {
+  color: rgba(26, 22, 18, 0.65) !important;
+}
+
+[data-theme="light"] .luxury-history-title {
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .luxury-history-text {
+  color: rgba(26, 22, 18, 0.72) !important;
+}
+
+[data-theme="light"] .luxury-history-subtitle {
+  color: rgba(26, 22, 18, 0.65) !important;
+}
+
+[data-theme="light"] .luxury-timeline-year {
+  color: rgba(26, 22, 18, 0.5) !important;
+}
+
+[data-theme="light"] .luxury-timeline-dot {
+  background: #C9A96E !important;
+  border-color: rgba(201, 169, 110, 0.35) !important;
+}
+
+[data-theme="light"] .luxury-history-chips .MuiChip-root {
+  background: rgba(201, 169, 110, 0.12) !important;
+  color: #A68550 !important;
+  border-color: rgba(201, 169, 110, 0.28) !important;
+}
+
+
+/* ---- REVIEWS ---- */
+[data-theme="light"] .luxury-review-section {
+  background: #EEE9E2 !important;
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .luxury-review-section h2,
+[data-theme="light"] .luxury-review-section p {
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .luxury-review-card {
+  background: rgba(255, 253, 249, 0.98) !important;
+  border-color: rgba(201, 169, 110, 0.2) !important;
+  box-shadow: 0 4px 20px rgba(26, 22, 18, 0.07) !important;
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .luxury-review-card:hover {
+  border-color: rgba(201, 169, 110, 0.42) !important;
+  box-shadow: 0 20px 30px -10px rgba(26, 22, 18, 0.13) !important;
+}
+
+[data-theme="light"] .luxury-review-title {
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .luxury-review-subtitle {
+  color: rgba(26, 22, 18, 0.65) !important;
+}
+
+[data-theme="light"] .luxury-review-text {
+  color: rgba(26, 22, 18, 0.75) !important;
+}
+
+[data-theme="light"] .luxury-guest-name {
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .luxury-review-date {
+  color: rgba(26, 22, 18, 0.5) !important;
+}
+
+[data-theme="light"] .luxury-stay-date {
+  color: rgba(26, 22, 18, 0.6) !important;
+}
+
+[data-theme="light"] .luxury-average-number {
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .luxury-total-reviews {
+  color: rgba(26, 22, 18, 0.6) !important;
+}
+
+[data-theme="light"] .luxury-filter-bar {
+  background: rgba(255, 253, 249, 0.97) !important;
+  border-color: rgba(201, 169, 110, 0.22) !important;
+  box-shadow: 0 4px 20px rgba(26, 22, 18, 0.07) !important;
+}
+
+[data-theme="light"] .luxury-view-all-btn {
+  color: #C9A96E !important;
+  border-color: rgba(201, 169, 110, 0.4) !important;
+  background: transparent !important;
+}
+
+[data-theme="light"] .luxury-view-all-btn:hover {
+  background: rgba(201, 169, 110, 0.1) !important;
+}
+
+[data-theme="light"] .luxury-featured-badge {
+  background: rgba(201, 169, 110, 0.15) !important;
+  color: #A68550 !important;
+  border-color: rgba(201, 169, 110, 0.3) !important;
+}
+
+[data-theme="light"] .luxury-read-more {
+  color: #C9A96E !important;
+}
+
+[data-theme="light"] .luxury-avatar-placeholder {
+  background: rgba(201, 169, 110, 0.15) !important;
+  color: #A68550 !important;
+}
+
+
+/* ---- FOOTER: intentionally stays dark in light mode (luxury convention) ---- */
+
+
+/* ---- MUI Paper & Cards in light mode ---- */
+[data-theme="light"] .MuiPaper-root {
+  background-color: #FFFDF8 !important;
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .MuiCard-root {
+  background-color: #FFFDF8 !important;
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .MuiDivider-root {
+  border-color: rgba(201, 169, 110, 0.2) !important;
+}
+
+[data-theme="light"] .MuiTypography-root {
   color: inherit;
 }
 
-/* Smooth transitions for all interactive elements */
-button, a, input {
-  transition: all 0.25s ease;
+/* MUI outlined inputs */
+[data-theme="light"] .MuiOutlinedInput-root {
+  background-color: rgba(255, 253, 249, 0.95);
+}
+
+[data-theme="light"] .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(201, 169, 110, 0.3) !important;
+}
+
+[data-theme="light"] .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(201, 169, 110, 0.55) !important;
+}
+
+[data-theme="light"] .MuiInputLabel-root {
+  color: rgba(26, 22, 18, 0.6) !important;
+}
+
+[data-theme="light"] .MuiInputBase-input {
+  color: #1A1612 !important;
+}
+
+[data-theme="light"] .MuiSelect-icon {
+  color: rgba(26, 22, 18, 0.55) !important;
 }

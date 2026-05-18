@@ -1,0 +1,103 @@
+You are an expert React frontend developer and modern UI/UX designer.
+
+I have already built a hotel website using React (.jsx). The website is fully functional, responsive, and connected to backend APIs.
+
+⚠️ IMPORTANT:
+- DO NOT modify backend logic
+- DO NOT change API calls
+- DO NOT break state management or functionality
+- ONLY improve frontend UI/UX
+
+----------------------------------
+
+🎯 YOUR TASKS:
+
+1. Modern UI Redesign:
+- Transform the UI into a premium, luxury hotel style
+- Clean, minimal, elegant layout
+- Improve visual hierarchy and spacing
+
+2. Color System (VERY IMPORTANT):
+Apply a modern, professional color palette:
+
+LIGHT MODE:
+- Primary: #1E3A8A (Deep Blue)
+- Secondary: #F59E0B (Gold Accent)
+- Background: #F9FAFB (Light Gray/White)
+- Text: #111827 (Dark Gray)
+
+DARK MODE:
+- Primary: #0F172A (Dark Navy)
+- Secondary: #FBBF24 (Soft Gold)
+- Background: #020617 / #0B1120
+- Text: #E5E7EB (Light Gray)
+
+- Ensure perfect contrast and readability
+- Use soft gradients where needed
+
+3. Dark / Light Mode:
+- Implement toggle button (top navbar)
+- Use React state or context for theme switching
+- Save preference in localStorage
+- Smooth transition between themes
+
+4. Typography:
+- Use modern fonts (Google Fonts):
+  - Headings: Playfair Display
+  - Body: Poppins or Inter
+- Improve font sizes, spacing, and readability
+
+5. Animations:
+Use Framer Motion (preferred)
+
+Add:
+- Fade-in / slide-up on scroll
+- Hover effects on cards & buttons
+- Smooth page transitions
+- Subtle, premium animations (NOT overdone)
+
+6. Components Improvement:
+- Navbar → sticky + modern + blur/glass effect
+- Hero Section → overlay gradient + strong headline
+- Room Cards → shadow + hover scale + clean layout
+- Buttons → rounded + animated hover
+- Footer → clean multi-column layout
+
+7. Layout & Spacing:
+- Fix alignment issues
+- Use consistent padding/margins
+- Improve grid system (Flexbox/Grid)
+
+8. UI Enhancements:
+- Soft shadows
+- Glassmorphism (light use)
+- Smooth borders & radius
+- Better image presentation
+
+9. Responsiveness:
+- Maintain full responsiveness
+- Improve mobile UI if needed
+
+----------------------------------
+
+🧠 TECH REQUIREMENTS:
+
+- Keep JSX structure intact
+- Do not remove existing logic
+- Only enhance styling and UI layers
+- Use Tailwind CSS (if already used) OR clean CSS
+
+----------------------------------
+
+🎯 OUTPUT:
+
+- Updated React JSX code
+- Styling improvements (Tailwind or CSS)
+- Dark/Light mode implementation
+- Framer Motion animations added
+
+----------------------------------
+
+FINAL RULE:
+👉 DO NOT TOUCH BACKEND LOGIC AT ANY COST
+👉 ONLY FRONTEND/UI IMPROVEMENT
