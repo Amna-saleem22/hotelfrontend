@@ -1,504 +1,3 @@
-// import { useState } from "react";
-// import axiosInstance from "../api/axiosInstance";
-// import { useNavigate } from "react-router-dom";
-
-// export default function LoginPage() {
-//   const navigate = useNavigate(); // ✅ useNavigate for redirect
-
-//   const [formData, setFormData] = useState({
-//     email: "",
-//     password: "",
-//   });
-//   const [loading, setLoading] = useState(false);
-
-//   const handleChange = (e) =>
-//     setFormData({ ...formData, [e.target.name]: e.target.value });
-
-//   const handleLogin = async (e) => {
-//     if (e?.preventDefault) e.preventDefault();
-//     if (loading) return;
-
-//     setLoading(true);
-//     try {
-//       const res = await axiosInstance.post("/auth/login", formData, {
-//         timeout: 10000,
-//       });
-
-//       if (!res.data?.token) {
-//         alert("Invalid response: no token received");
-//         return;
-//       }
-
-//       localStorage.setItem("token", res.data.token);
-//       alert("Login Successful ✅");
-//       navigate("/dashboard");
-//     } catch (error) {
-//       const msg =
-//         error.response?.data?.message ||
-//         error.message ||
-//         (error.code === "ERR_NETWORK" ? "Cannot reach server. Is backend running on port 5000?" : "Login Failed ❌");
-//       console.error("Login Error:", error.response?.data || error.message);
-//       alert(msg);
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   return (
-//     <div style={boxStyle}>
-//       <h2 style={{ color: "gold" }}>🔐 Login</h2>
-
-//       <form onSubmit={handleLogin} style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
-//       <input
-//         style={inputStyle}
-//         placeholder="Email"
-//         name="email"
-//         value={formData.email}
-//         onChange={handleChange}
-//       />
-
-//       <input
-//         style={inputStyle}
-//         placeholder="Password"
-//         name="password"
-//         type="password"
-//         value={formData.password}
-//         onChange={handleChange}
-//       />
-
-//       <button
-//         type="submit"
-//         style={{ ...btnStyle, opacity: loading ? 0.7 : 1, cursor: loading ? "wait" : "pointer" }}
-//         disabled={loading}
-//       >
-//         {loading ? "Loading..." : "Login"}
-//       </button>
-//       </form>
-//     </div>
-//   );
-// }
-
-// // ✅ Styling
-// const boxStyle = {
-//   maxWidth: "400px",
-//   margin: "80px auto",
-//   padding: "30px",
-//   background: "#222",
-//   borderRadius: "10px",
-//   display: "flex",
-//   flexDirection: "column",
-//   gap: "15px",
-//   textAlign: "center",
-// };
-
-// const inputStyle = {
-//   padding: "10px",
-//   borderRadius: "5px",
-//   border: "1px solid gray",
-// };
-
-// const btnStyle = {
-//   padding: "12px",
-//   background: "gold",
-//   border: "none",
-//   fontWeight: "bold",
-//   cursor: "pointer",
-//   borderRadius: "5px",
-// 
-
-
-
-
-// };
-// import { useState } from "react";
-// import axiosInstance from "../api/axiosInstance";
-// import { useNavigate } from "react-router-dom";
-
-// export default function LoginPage() {
-//   const navigate = useNavigate();
-
-//   const [formData, setFormData] = useState({
-//     email: "",
-//     password: "",
-//   });
-
-//   const handleChange = (e) =>
-//     setFormData({ ...formData, [e.target.name]: e.target.value });
-
-//   const handleLogin = async () => {
-//     try {
-//       const res = await axiosInstance.post("/auth/login", formData);
-
-//       localStorage.setItem("token", res.data.token);
-
-//       alert("Login Successful ✅");
-
-//       // ✅ Role Based Redirect
-//       // if (res.data.user.role === "staff") {
-//       //   navigate("/staff-dashboard");
-//       // } else {
-//         navigate("/dashboard");
-//       // }
-//     } catch (error) {
-//       alert(error.response?.data?.message || "Login Failed ❌");
-//     }
-//   };
-
-//   return (
-//     <div style={boxStyle}>
-//       <h2 style={{ color: "gold" }}>🔐 Login</h2>
-
-//       <input
-//         placeholder="Email"
-//         name="email"
-//         value={formData.email}
-//         onChange={handleChange}
-//       />
-
-//       <input
-//         placeholder="Password"
-//         type="password"
-//         name="password"
-//         value={formData.password}
-//         onChange={handleChange}
-//       />
-
-//       <button onClick={handleLogin}>Login</button>
-//     </div>
-//   );
-// }
-
-// const boxStyle = {
-//   maxWidth: "400px",
-//   margin: "80px auto",
-//   padding: "30px",
-//   background: "#222",
-//   borderRadius: "10px",
-//   display: "flex",
-//   flexDirection: "column",
-//   gap: "15px",
-// };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useState } from "react";
-// import {
-//   Box,
-//   Container,
-//   Typography,
-//   TextField,
-//   Button,
-//   Paper,
-//   Link,
-//   InputAdornment,
-//   IconButton,
-//   Divider,
-//   Checkbox,
-//   FormControlLabel,
-//   Alert,
-//   Stack,
-// } from "@mui/material";
-// import { motion } from "framer-motion";
-// import { Link as RouterLink, useNavigate } from "react-router-dom";
-// import EmailIcon from "@mui/icons-material/Email";
-// import LockIcon from "@mui/icons-material/Lock";
-// import VisibilityIcon from "@mui/icons-material/Visibility";
-// import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-// import DiamondIcon from "@mui/icons-material/Diamond";
-// import axiosInstance from "../api/axiosInstance";
-
-// export default function LoginPage() {
-//   const navigate = useNavigate();
-
-//   const [showPassword, setShowPassword] = useState(false);
-//   const [formData, setFormData] = useState({
-//     email: "",
-//     password: "",
-//     rememberMe: false,
-//   });
-
-//   const [errors, setErrors] = useState({});
-//   const [loading, setLoading] = useState(false);
-
-//   const handleChange = (e) => {
-//     const { name, value, checked } = e.target;
-//     setFormData((prev) => ({
-//       ...prev,
-//       [name]: name === "rememberMe" ? checked : value,
-//     }));
-//   };
-
-//   const validateForm = () => {
-//     const newErrors = {};
-//     if (!formData.email) newErrors.email = "Email is required";
-//     if (!formData.password) newErrors.password = "Password is required";
-//     return newErrors;
-//   };
-
-//   // ✅ YOUR ORIGINAL LOGIN LOGIC ADDED HERE
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-
-//     const validationErrors = validateForm();
-//     if (Object.keys(validationErrors).length !== 0) {
-//       setErrors(validationErrors);
-//       return;
-//     }
-
-//     try {
-//       setLoading(true);
-
-//       const res = await axiosInstance.post("/auth/login", {
-//         email: formData.email,
-//         password: formData.password,
-//       });
-
-//       localStorage.setItem("token", res.data.token);
-// localStorage.setItem("role", res.data.user.role);
-//       alert("Login Successful ✅");
-// const role = res.data.user.role;
-
-// if (role === "admin") {
-//   navigate("/admin");
-// } else if (role === "staff") {
-//   navigate("/staff");
-// } else {
-//   navigate("/dashboard");
-// }// role based daslogic bhi laga sakte ho
-//     } catch (error) {
-//       alert(error.response?.data?.message || "Login Failed ❌");
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   return (
-//     <Box
-//       sx={{
-//         minHeight: "100vh",
-//         background: "linear-gradient(135deg, #0a0a0a 0%, #111111 100%)",
-//         display: "flex",
-//         alignItems: "center",
-//         justifyContent: "center",
-//       }}
-//     >
-//       <Container maxWidth="sm">
-//         <Paper
-//           elevation={24}
-//           sx={{
-//             p: 5,
-//             background:
-//               "linear-gradient(135deg, rgba(18,18,18,0.95) 0%, rgba(10,10,10,0.95) 100%)",
-//             border: "1px solid rgba(13,71,161,0.3)",
-//             borderRadius: 4,
-//           }}
-//         >
-//           {/* Logo */}
-//           <Box
-//             sx={{
-//               display: "flex",
-//               justifyContent: "center",
-//               alignItems: "center",
-//               mb: 4,
-//             }}
-//           >
-//             <DiamondIcon sx={{ fontSize: 40, color: "#0d47a1", mr: 1 }} />
-//             <Typography
-//               variant="h5"
-//               sx={{
-//                 fontWeight: 700,
-//                 background: "linear-gradient(135deg, #fff 30%, #0d47a1 90%)",
-//                 WebkitBackgroundClip: "text",
-//                 WebkitTextFillColor: "transparent",
-//               }}
-//             >
-//               LUXURY STAY
-//             </Typography>
-//           </Box>
-
-//           <Typography
-//             variant="h5"
-//             align="center"
-//             sx={{ color: "white", mb: 3 }}
-//           >
-//             Welcome Back
-//           </Typography>
-
-//           <form onSubmit={handleSubmit}>
-//             <Stack spacing={3}>
-//               {/* Email */}
-//               <TextField
-//                 fullWidth
-//                 name="email"
-//                 label="Email"
-//                 value={formData.email}
-//                 onChange={handleChange}
-//                 error={!!errors.email}
-//                 helperText={errors.email}
-//                 InputProps={{
-//                   startAdornment: (
-//                     <InputAdornment position="start">
-//                       <EmailIcon sx={{ color: "#0d47a1" }} />
-//                     </InputAdornment>
-//                   ),
-//                 }}
-//                 sx={darkFieldStyle}
-//               />
-
-//               {/* Password */}
-//               <TextField
-//                 fullWidth
-//                 name="password"
-//                 label="Password"
-//                 type={showPassword ? "text" : "password"}
-//                 value={formData.password}
-//                 onChange={handleChange}
-//                 error={!!errors.password}
-//                 helperText={errors.password}
-//                 InputProps={{
-//                   startAdornment: (
-//                     <InputAdornment position="start">
-//                       <LockIcon sx={{ color: "#0d47a1" }} />
-//                     </InputAdornment>
-//                   ),
-//                   endAdornment: (
-//                     <InputAdornment position="end">
-//                       <IconButton
-//                         onClick={() => setShowPassword(!showPassword)}
-//                         sx={{ color: "white" }}
-//                       >
-//                         {showPassword ? (
-//                           <VisibilityOffIcon />
-//                         ) : (
-//                           <VisibilityIcon />
-//                         )}
-//                       </IconButton>
-//                     </InputAdornment>
-//                   ),
-//                 }}
-//                 sx={darkFieldStyle}
-//               />
-
-//               {/* Remember Me */}
-//               <FormControlLabel
-//                 control={
-//                   <Checkbox
-//                     name="rememberMe"
-//                     checked={formData.rememberMe}
-//                     onChange={handleChange}
-//                     sx={{
-//                       color: "#0d47a1",
-//                       "&.Mui-checked": { color: "#0d47a1" },
-//                     }}
-//                   />
-//                 }
-//                 label={
-//                   <Typography sx={{ color: "rgba(255,255,255,0.7)" }}>
-//                     Remember me
-//                   </Typography>
-//                 }
-//               />
-
-//               {/* Login Button */}
-//               <motion.div whileHover={{ scale: 1.02 }}>
-//                 <Button
-//                   type="submit"
-//                   fullWidth
-//                   variant="contained"
-//                   disabled={loading}
-//                   sx={{
-//                     background:
-//                       "linear-gradient(135deg, #0d47a1 30%, #1565c0 90%)",
-//                     py: 1.5,
-//                     fontWeight: 600,
-//                   }}
-//                 >
-//                   {loading ? "Signing In..." : "Sign In"}
-//                 </Button>
-//               </motion.div>
-
-//               <Divider sx={{ borderColor: "rgba(255,255,255,0.2)" }} />
-
-//               {/* Register Link */}
-//               <Typography
-//                 align="center"
-//                 sx={{ color: "rgba(255,255,255,0.7)" }}
-//               >
-//                 Don’t have an account?{" "}
-//                 <Link
-//                   component={RouterLink}
-//                   to="/register"
-//                   sx={{ color: "#0d47a1", fontWeight: 600 }}
-//                 >
-//                   Create Account
-//                 </Link>
-//               </Typography>
-//             </Stack>
-//           </form>
-//         </Paper>
-//       </Container>
-//     </Box>
-//   );
-// }
-
-// const darkFieldStyle = {
-//   "& .MuiOutlinedInput-root": {
-//     color: "white",
-//     "& fieldset": {
-//       borderColor: "rgba(13,71,161,0.3)",
-//     },
-//     "&:hover fieldset": {
-//       borderColor: "#0d47a1",
-//     },
-//     "&.Mui-focused fieldset": {
-//       borderColor: "#0d47a1",
-//     },
-//   },
-//   "& .MuiInputLabel-root": {
-//     color: "rgba(255,255,255,0.7)",
-//     "&.Mui-focused": {
-//       color: "#0d47a1",
-//     },
-//   },
-// };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React, { useState } from "react";
 import {
   Box,
@@ -515,8 +14,9 @@ import {
   FormControlLabel,
   Alert,
   Stack,
+  Avatar,
 } from "@mui/material";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
@@ -524,37 +24,28 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import DiamondIcon from "@mui/icons-material/Diamond";
 import axiosInstance from "../api/axiosInstance";
+import { useThemeMode } from "../context/ThemeContext";
+import { getFormStyle } from "../theme/designSystem";
+
+const GOLD = '#C9A96E';
+const GOLD_DARK = '#A68550';
+const GOLD_LIGHT_VAR = '#DFC085';
 
 export default function LoginPage() {
   const navigate = useNavigate();
+  const { isDark } = useThemeMode();
 
   const [showPassword, setShowPassword] = useState(false);
   const [serverError, setServerError] = useState("");
-
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-    rememberMe: false,
-  });
-
+  const [formData, setFormData] = useState({ email: "", password: "", rememberMe: false });
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
   // ================= HANDLE INPUT =================
   const handleChange = (e) => {
     const { name, value, checked } = e.target;
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: name === "rememberMe" ? checked : value,
-    }));
-
-    // Clear field error
-    setErrors((prev) => ({
-      ...prev,
-      [name]: "",
-    }));
-
+    setFormData((prev) => ({ ...prev, [name]: name === "rememberMe" ? checked : value }));
+    setErrors((prev) => ({ ...prev, [name]: "" }));
     setServerError("");
   };
 
@@ -566,229 +57,388 @@ export default function LoginPage() {
     return newErrors;
   };
 
-  // ================= LOGIN =================
- const handleSubmit = async (e) => {
-  e.preventDefault();
+  // ================= LOGIN (original logic preserved) =================
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length) { setErrors(validationErrors); return; }
+    try {
+      setLoading(true);
+      const res = await axiosInstance.post("/auth/login", {
+        email: formData.email,
+        password: formData.password,
+      });
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("role", res.data.user.role);
+      const role = res.data.user.role;
+      if (role === "admin") navigate("/admin");
+      else if (role === "staff") navigate("/staff");
+      else navigate("/dashboard");
+    } catch (err) {
+      setServerError(err.response?.data?.message || "Login failed. Please check your credentials.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  const validationErrors = validateForm();
-  if (Object.keys(validationErrors).length) {
-    setErrors(validationErrors);
-    return;
-  }
+  // ================= THEME-ADAPTIVE STYLES =================
+  const textColor      = isDark ? '#F0EBE1'                    : '#1A1612';
+  const textSecondary  = isDark ? 'rgba(240,235,225,0.65)'     : 'rgba(26,22,18,0.62)';
+  const dividerColor   = isDark ? 'rgba(201,169,110,0.16)'     : 'rgba(201,169,110,0.24)';
+  const cardBorderColor = `rgba(201,169,110,${isDark ? '0.2' : '0.26'})`;
+  const iconColor      = `rgba(201,169,110,${isDark ? '0.72' : '0.82'})`;
 
-  try {
-    setLoading(true);
-    const res = await axiosInstance.post("/auth/login", {
-      email: formData.email,
-      password: formData.password,
-    });
+  const bgGradient = isDark
+    ? [
+        'radial-gradient(ellipse at 15% 50%, rgba(201,169,110,0.07) 0%, transparent 55%)',
+        'radial-gradient(ellipse at 85% 15%, rgba(201,169,110,0.05) 0%, transparent 50%)',
+        'linear-gradient(135deg, #0A0908 0%, #100E0B 100%)',
+      ].join(', ')
+    : [
+        'radial-gradient(ellipse at 15% 50%, rgba(201,169,110,0.13) 0%, transparent 55%)',
+        'radial-gradient(ellipse at 85% 15%, rgba(201,169,110,0.09) 0%, transparent 50%)',
+        'linear-gradient(135deg, #F7F4EF 0%, #EEE9E2 100%)',
+      ].join(', ');
 
-    localStorage.setItem("token", res.data.token);
-    localStorage.setItem("role", res.data.user.role);
+  const cardBg = isDark
+    ? 'linear-gradient(150deg, rgba(18,15,10,0.98) 0%, rgba(12,10,7,0.98) 100%)'
+    : 'linear-gradient(150deg, rgba(255,253,249,0.99) 0%, rgba(250,247,242,0.99) 100%)';
 
-    const role = res.data.user.role;
-    if (role === "admin") navigate("/admin");
-    else if (role === "staff") navigate("/staff");
-    else navigate("/dashboard");
-  } catch (err) {
-    alert(err.response?.data?.message || "Login failed");
-  } finally {
-    setLoading(false);
-  }
-};
+  const cardShadow = isDark
+    ? '0 40px 100px rgba(0,0,0,0.65), 0 0 0 1px rgba(201,169,110,0.06), inset 0 1px 0 rgba(201,169,110,0.07)'
+    : '0 40px 100px rgba(26,22,18,0.12), 0 0 0 1px rgba(201,169,110,0.08), inset 0 1px 0 rgba(255,255,255,0.9)';
+
+  const fieldStyle = getFormStyle(isDark);
+
+  // ================= ANIMATION VARIANTS =================
+  const cardVariants = {
+    hidden: { opacity: 0, y: 36, scale: 0.96 },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  };
+  const stagger = (delay) => ({
+    hidden: { opacity: 0, y: 14 },
+    visible: { opacity: 1, y: 0, transition: { delay, duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
+  });
+  const slideIn = (delay) => ({
+    hidden: { opacity: 0, x: -18 },
+    visible: { opacity: 1, x: 0, transition: { delay, duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
+  });
 
   return (
     <Box
       sx={{
-        minHeight: "100vh",
-        background: "linear-gradient(135deg, #0a0a0a 0%, #111111 100%)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        minHeight: '100vh',
+        background: bgGradient,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        py: 5,
+        transition: 'background 0.35s ease',
+        position: 'relative',
+        overflow: 'hidden',
       }}
     >
+      {/* Decorative corner accents */}
+      <Box sx={{ position: 'absolute', top: 40, left: 40, width: 80, height: 80, border: `1px solid rgba(201,169,110,${isDark ? '0.1' : '0.15'})`, borderRadius: '50%', pointerEvents: 'none' }} />
+      <Box sx={{ position: 'absolute', bottom: 40, right: 40, width: 120, height: 120, border: `1px solid rgba(201,169,110,${isDark ? '0.07' : '0.12'})`, borderRadius: '50%', pointerEvents: 'none' }} />
+      <Box sx={{ position: 'absolute', top: '20%', right: '8%', width: 4, height: 4, borderRadius: '50%', background: GOLD, opacity: isDark ? 0.35 : 0.5, pointerEvents: 'none' }} />
+      <Box sx={{ position: 'absolute', bottom: '25%', left: '6%', width: 3, height: 3, borderRadius: '50%', background: GOLD, opacity: isDark ? 0.25 : 0.4, pointerEvents: 'none' }} />
+
       <Container maxWidth="sm">
-        <Paper
-          elevation={24}
-          sx={{
-            p: 5,
-            background:
-              "linear-gradient(135deg, rgba(18,18,18,0.95) 0%, rgba(10,10,10,0.95) 100%)",
-            border: "1px solid rgba(13,71,161,0.3)",
-            borderRadius: 4,
-          }}
-        >
-          {/* Logo */}
-          <Box
+        <motion.div variants={cardVariants} initial="hidden" animate="visible">
+          <Paper
+            elevation={0}
             sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              mb: 4,
+              p: { xs: 3.5, sm: 5 },
+              background: cardBg,
+              border: `1px solid ${cardBorderColor}`,
+              borderRadius: 4,
+              backdropFilter: 'blur(24px)',
+              boxShadow: cardShadow,
             }}
           >
-            <DiamondIcon sx={{ fontSize: 40, color: "#0d47a1", mr: 1 }} />
-            <Typography
-              variant="h5"
-              sx={{
-                fontWeight: 700,
-                background: "linear-gradient(135deg, #fff 30%, #0d47a1 90%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              LUXURY STAY
-            </Typography>
-          </Box>
-
-          <Typography
-            variant="h5"
-            align="center"
-            sx={{ color: "white", mb: 3 }}
-          >
-            Welcome Back
-          </Typography>
-
-          {/* Server Error */}
-          {serverError && (
-            <Alert severity="error" sx={{ mb: 2 }}>
-              {serverError}
-            </Alert>
-          )}
-
-          <form onSubmit={handleSubmit}>
-            <Stack spacing={3}>
-              {/* Email */}
-              <TextField
-                fullWidth
-                name="email"
-                label="Email"
-                value={formData.email}
-                onChange={handleChange}
-                error={!!errors.email}
-                helperText={errors.email}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <EmailIcon sx={{ color: "#0d47a1" }} />
-                    </InputAdornment>
-                  ),
-                }}
-                sx={darkFieldStyle}
-              />
-
-              {/* Password */}
-              <TextField
-                fullWidth
-                name="password"
-                label="Password"
-                type={showPassword ? "text" : "password"}
-                value={formData.password}
-                onChange={handleChange}
-                error={!!errors.password}
-                helperText={errors.password}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <LockIcon sx={{ color: "#0d47a1" }} />
-                    </InputAdornment>
-                  ),
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton
-                        onClick={() => setShowPassword(!showPassword)}
-                        sx={{ color: "white" }}
-                      >
-                        {showPassword ? (
-                          <VisibilityOffIcon />
-                        ) : (
-                          <VisibilityIcon />
-                        )}
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-                sx={darkFieldStyle}
-              />
-
-              {/* Remember Me */}
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    name="rememberMe"
-                    checked={formData.rememberMe}
-                    onChange={handleChange}
-                    sx={{
-                      color: "#0d47a1",
-                      "&.Mui-checked": { color: "#0d47a1" },
-                    }}
-                  />
-                }
-                label={
-                  <Typography sx={{ color: "rgba(255,255,255,0.7)" }}>
-                    Remember me
-                  </Typography>
-                }
-              />
-
-              {/* Button */}
-              <motion.div whileHover={{ scale: 1.02 }}>
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  disabled={loading}
+            {/* ---- Logo ---- */}
+            <motion.div variants={stagger(0.12)} initial="hidden" animate="visible">
+              <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mb: 1.5, gap: 1.5 }}>
+                <Avatar
                   sx={{
-                    background:
-                      "linear-gradient(135deg, #0d47a1 30%, #1565c0 90%)",
-                    py: 1.5,
-                    fontWeight: 600,
+                    bgcolor: `rgba(201,169,110,${isDark ? '0.1' : '0.12'})`,
+                    border: `1.5px solid rgba(201,169,110,${isDark ? '0.28' : '0.35'})`,
+                    width: 54,
+                    height: 54,
+                    boxShadow: `0 0 20px rgba(201,169,110,${isDark ? '0.12' : '0.1'})`,
                   }}
                 >
-                  {loading ? "Signing In..." : "Sign In"}
-                </Button>
-              </motion.div>
+                  <DiamondIcon sx={{ color: GOLD, fontSize: 26 }} />
+                </Avatar>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontWeight: 700,
+                    color: GOLD,
+                    fontFamily: '"Playfair Display", Georgia, serif',
+                    letterSpacing: '0.1em',
+                    fontSize: '1.15rem',
+                  }}
+                >
+                  LUXURY STAY
+                </Typography>
+              </Box>
 
-              <Divider sx={{ borderColor: "rgba(255,255,255,0.2)" }} />
+              {/* Gold divider line */}
+              <Box
+                sx={{
+                  width: 52,
+                  height: 1.5,
+                  background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)`,
+                  mx: 'auto',
+                  mb: 3,
+                  opacity: 0.7,
+                }}
+              />
+            </motion.div>
 
+            {/* ---- Heading ---- */}
+            <motion.div variants={stagger(0.2)} initial="hidden" animate="visible">
+              <Typography
+                variant="h5"
+                align="center"
+                sx={{
+                  color: textColor,
+                  mb: 0.75,
+                  fontFamily: '"Playfair Display", Georgia, serif',
+                  fontWeight: 700,
+                  fontSize: { xs: '1.5rem', sm: '1.7rem' },
+                }}
+              >
+                Welcome Back
+              </Typography>
               <Typography
                 align="center"
-                sx={{ color: "rgba(255,255,255,0.7)" }}
+                sx={{ color: textSecondary, mb: 3.5, fontSize: '0.9rem', lineHeight: 1.6 }}
               >
-                Don’t have an account?{" "}
-                <Link
-                  component={RouterLink}
-                  to="/register"
-                  sx={{ color: "#0d47a1", fontWeight: 600 }}
-                >
-                  Create Account
-                </Link>
+                Sign in to continue your luxury experience
               </Typography>
-            </Stack>
-          </form>
-        </Paper>
+            </motion.div>
+
+            {/* ---- Server Error ---- */}
+            <AnimatePresence>
+              {serverError && (
+                <motion.div
+                  key="server-error"
+                  initial={{ opacity: 0, y: -8, scale: 0.97 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -8, scale: 0.97 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Alert
+                    severity="error"
+                    onClose={() => setServerError("")}
+                    sx={{
+                      mb: 2.5,
+                      borderRadius: 2,
+                      backgroundColor: isDark ? 'rgba(198,40,40,0.12)' : 'rgba(198,40,40,0.08)',
+                      border: '1px solid rgba(198,40,40,0.25)',
+                      color: isDark ? '#ef9a9a' : '#c62828',
+                      '& .MuiAlert-icon': { color: isDark ? '#ef9a9a' : '#c62828' },
+                    }}
+                  >
+                    {serverError}
+                  </Alert>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* ---- Form ---- */}
+            <form onSubmit={handleSubmit} noValidate>
+              <Stack spacing={2.5}>
+
+                {/* Email */}
+                <motion.div variants={slideIn(0.28)} initial="hidden" animate="visible">
+                  <TextField
+                    fullWidth
+                    name="email"
+                    label="Email Address"
+                    type="email"
+                    autoComplete="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    error={!!errors.email}
+                    helperText={errors.email}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <EmailIcon sx={{ color: iconColor, fontSize: 20 }} />
+                        </InputAdornment>
+                      ),
+                    }}
+                    sx={fieldStyle}
+                  />
+                </motion.div>
+
+                {/* Password */}
+                <motion.div variants={slideIn(0.36)} initial="hidden" animate="visible">
+                  <TextField
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type={showPassword ? "text" : "password"}
+                    autoComplete="current-password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    error={!!errors.password}
+                    helperText={errors.password}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <LockIcon sx={{ color: iconColor, fontSize: 20 }} />
+                        </InputAdornment>
+                      ),
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <IconButton
+                            onClick={() => setShowPassword(!showPassword)}
+                            edge="end"
+                            aria-label={showPassword ? "Hide password" : "Show password"}
+                            sx={{
+                              color: textSecondary,
+                              '&:hover': { color: GOLD, backgroundColor: `rgba(201,169,110,0.08)` },
+                              transition: 'color 0.2s ease',
+                            }}
+                          >
+                            {showPassword
+                              ? <VisibilityOffIcon sx={{ fontSize: 20 }} />
+                              : <VisibilityIcon sx={{ fontSize: 20 }} />
+                            }
+                          </IconButton>
+                        </InputAdornment>
+                      ),
+                    }}
+                    sx={fieldStyle}
+                  />
+                </motion.div>
+
+                {/* Remember Me */}
+                <motion.div variants={stagger(0.43)} initial="hidden" animate="visible">
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        name="rememberMe"
+                        checked={formData.rememberMe}
+                        onChange={handleChange}
+                        size="small"
+                        sx={{
+                          color: `rgba(201,169,110,0.4)`,
+                          '&.Mui-checked': { color: GOLD },
+                          '&:hover': { backgroundColor: 'rgba(201,169,110,0.07)' },
+                        }}
+                      />
+                    }
+                    label={
+                      <Typography sx={{ color: textSecondary, fontSize: '0.875rem' }}>
+                        Remember me
+                      </Typography>
+                    }
+                  />
+                </motion.div>
+
+                {/* Sign In Button */}
+                <motion.div
+                  variants={stagger(0.5)}
+                  initial="hidden"
+                  animate="visible"
+                  whileHover={{ scale: 1.015 }}
+                  whileTap={{ scale: 0.985 }}
+                >
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    disabled={loading}
+                    sx={{
+                      background: loading
+                        ? 'rgba(201,169,110,0.35)'
+                        : `linear-gradient(135deg, ${GOLD} 0%, ${GOLD_DARK} 100%)`,
+                      color: '#1A1612',
+                      py: 1.55,
+                      fontWeight: 700,
+                      fontSize: '1rem',
+                      letterSpacing: '0.05em',
+                      fontFamily: '"Inter", sans-serif',
+                      borderRadius: 2,
+                      boxShadow: loading ? 'none' : `0 8px 28px rgba(201,169,110,0.3)`,
+                      '&:hover': {
+                        background: `linear-gradient(135deg, ${GOLD_LIGHT_VAR} 0%, ${GOLD} 100%)`,
+                        boxShadow: `0 14px 36px rgba(201,169,110,0.42)`,
+                      },
+                      '&.Mui-disabled': {
+                        color: 'rgba(26,22,18,0.45)',
+                      },
+                      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    }}
+                  >
+                    {loading ? "Signing In…" : "Sign In"}
+                  </Button>
+                </motion.div>
+
+                {/* Divider */}
+                <motion.div variants={stagger(0.56)} initial="hidden" animate="visible">
+                  <Divider
+                    sx={{
+                      borderColor: dividerColor,
+                      '&::before, &::after': { borderColor: dividerColor },
+                    }}
+                  >
+                    <Typography sx={{ color: textSecondary, fontSize: '0.72rem', px: 1.5, letterSpacing: '0.08em' }}>
+                      OR
+                    </Typography>
+                  </Divider>
+                </motion.div>
+
+                {/* Register link */}
+                <motion.div variants={stagger(0.62)} initial="hidden" animate="visible">
+                  <Typography align="center" sx={{ color: textSecondary, fontSize: '0.9rem' }}>
+                    Don't have an account?{' '}
+                    <Link
+                      component={RouterLink}
+                      to="/register"
+                      sx={{
+                        color: GOLD,
+                        fontWeight: 600,
+                        textDecoration: 'none',
+                        '&:hover': { color: GOLD_LIGHT_VAR, textDecoration: 'underline' },
+                        transition: 'color 0.2s ease',
+                      }}
+                    >
+                      Create Account
+                    </Link>
+                  </Typography>
+                </motion.div>
+
+              </Stack>
+            </form>
+          </Paper>
+
+          {/* Footer note */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.75, duration: 0.5 }}
+          >
+            <Typography align="center" sx={{ color: textSecondary, fontSize: '0.78rem', mt: 2.5, lineHeight: 1.6 }}>
+              By signing in you agree to our{' '}
+              <Link href="/privacy" sx={{ color: `rgba(201,169,110,0.72)`, fontSize: 'inherit', '&:hover': { color: GOLD } }}>
+                Privacy Policy
+              </Link>
+              {' '}and{' '}
+              <Link href="/terms" sx={{ color: `rgba(201,169,110,0.72)`, fontSize: 'inherit', '&:hover': { color: GOLD } }}>
+                Terms of Service
+              </Link>
+            </Typography>
+          </motion.div>
+
+        </motion.div>
       </Container>
     </Box>
   );
 }
-
-const darkFieldStyle = {
-  "& .MuiOutlinedInput-root": {
-    color: "white",
-    "& fieldset": {
-      borderColor: "rgba(13,71,161,0.3)",
-    },
-    "&:hover fieldset": {
-      borderColor: "#0d47a1",
-    },
-    "&.Mui-focused fieldset": {
-      borderColor: "#0d47a1",
-    },
-  },
-  "& .MuiInputLabel-root": {
-    color: "rgba(255,255,255,0.7)",
-    "&.Mui-focused": {
-      color: "#0d47a1",
-    },
-  },
-};

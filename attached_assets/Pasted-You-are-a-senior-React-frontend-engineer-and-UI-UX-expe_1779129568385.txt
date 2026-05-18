@@ -1,0 +1,125 @@
+You are a senior React frontend engineer and UI/UX expert.
+
+I have a hotel website built in React (.jsx), fully responsive and connected with backend APIs.
+
+⚠️ STRICT RULE:
+- DO NOT touch backend logic
+- DO NOT modify API calls
+- DO NOT break functionality
+- ONLY fix and improve frontend UI/UX
+
+----------------------------------
+
+🚨 CURRENT ISSUES TO FIX:
+
+1. Dark/Light Mode Bug:
+- Currently theme is inconsistent
+- Some elements change color, others do not
+
+✅ FIX THIS BY:
+- Implement a proper global theming system
+- Use CSS variables OR Tailwind dark mode class strategy
+- Ensure ALL components follow the same theme
+- No hardcoded colors allowed (remove them)
+
+- Apply theme to:
+  - text
+  - backgrounds
+  - cards
+  - buttons
+  - forms
+  - navbar
+  - footer
+
+- Add smooth transition between themes
+
+- Store theme preference in localStorage
+
+----------------------------------
+
+2. Login Page UI Redesign:
+
+Completely redesign login page with modern UI:
+
+- Centered card layout
+- Glassmorphism or soft shadow card
+- Background gradient (luxury feel)
+
+Form improvements:
+- Styled input fields (focus effects)
+- Floating labels OR clean placeholders
+- Modern buttons with hover animation
+- Error message styling
+
+Extra:
+- Add subtle animation (fade/scale)
+- Add icon inside inputs (optional)
+
+----------------------------------
+
+3. Modern Color System:
+
+LIGHT MODE:
+- Primary: #1E3A8A
+- Accent: #F59E0B
+- Background: #F9FAFB
+- Card: #FFFFFF
+- Text: #111827
+
+DARK MODE:
+- Primary: #0F172A
+- Accent: #FBBF24
+- Background: #020617
+- Card: #0B1120
+- Text: #E5E7EB
+
+👉 Use ONLY these via variables or theme classes
+👉 No direct hex usage in components
+
+----------------------------------
+
+4. Typography Fix:
+- Use modern fonts:
+  - Headings: Playfair Display
+  - Body: Inter or Poppins
+- Fix spacing and readability
+
+----------------------------------
+
+5. Animations (Framer Motion):
+- Page load fade-in
+- Login card scale animation
+- Button hover effects
+- Smooth transitions
+
+----------------------------------
+
+6. UI Consistency Fix:
+- Remove inline styles with fixed colors
+- Replace with theme-based classes
+- Ensure ALL pages follow same design system
+
+----------------------------------
+
+7. Components to Improve:
+- Navbar (add theme toggle button)
+- Buttons (modern + animated)
+- Cards (shadow + hover)
+- Forms (clean + accessible)
+
+----------------------------------
+
+🎯 OUTPUT:
+
+- Updated React JSX code
+- Fixed theme system (global)
+- Working dark/light toggle
+- Fully redesigned login page
+- Clean, modern UI
+- Animations added
+
+----------------------------------
+
+FINAL WARNING:
+👉 DO NOT TOUCH BACKEND LOGIC
+👉 ONLY FRONTEND + UI + THEME FIX
