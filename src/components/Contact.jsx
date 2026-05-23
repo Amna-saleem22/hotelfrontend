@@ -752,6 +752,63 @@ const Contact = () => {
         .luxury-api-alert {
           margin-bottom: 1rem;
         }
+
+        /* ===== LIGHT MODE OVERRIDES ===== */
+        [data-theme="light"] .luxury-contact-root {
+          background-color: #F7F4EF;
+        }
+        [data-theme="light"] .luxury-contact-hero-bg {
+          background: linear-gradient(135deg, #EEE9E2 0%, #DAD0C0 50%, rgba(201,169,110,0.4) 100%);
+        }
+        [data-theme="light"] .luxury-contact-hero-title {
+          color: #1A1612;
+          text-shadow: none;
+        }
+        [data-theme="light"] .luxury-contact-hero-title span {
+          background: linear-gradient(135deg, #3D2B1F 30%, #A68550 90%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        [data-theme="light"] .luxury-contact-hero-description {
+          color: rgba(26,22,18,0.75);
+          text-shadow: none;
+        }
+        [data-theme="light"] .luxury-contact-section-alt {
+          background: linear-gradient(135deg, #EEE9E2 0%, #E3DAD0 100%);
+        }
+        [data-theme="light"] .luxury-contact-header h2 {
+          color: #1A1612;
+        }
+        [data-theme="light"] .luxury-contact-header p {
+          color: rgba(26,22,18,0.7);
+        }
+        [data-theme="light"] .luxury-contact-card {
+          background: rgba(255,255,255,0.97);
+          border-color: rgba(201,169,110,0.25);
+        }
+        [data-theme="light"] .luxury-contact-card-title {
+          color: #1A1612;
+        }
+        [data-theme="light"] .luxury-contact-card-description {
+          color: rgba(26,22,18,0.6);
+        }
+        [data-theme="light"] .luxury-form-header h3 {
+          color: #1A1612;
+        }
+        [data-theme="light"] .luxury-form-header p {
+          color: rgba(26,22,18,0.7);
+        }
+        [data-theme="light"] .luxury-form-paper {
+          background: rgba(255,255,255,0.97);
+          border-color: rgba(201,169,110,0.25);
+        }
+        [data-theme="light"] .luxury-social-caption {
+          color: rgba(26,22,18,0.6);
+        }
+        [data-theme="light"] .luxury-contact-scroll-box {
+          background-color: rgba(26,22,18,0.08);
+          border-color: rgba(201,169,110,0.5);
+        }
       `}</style>
 
       <Box className="luxury-contact-root">

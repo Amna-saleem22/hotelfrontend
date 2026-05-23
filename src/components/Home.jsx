@@ -282,7 +282,9 @@ const galleryImages = [
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          background: 'linear-gradient(135deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.7) 100%), url("https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80")',
+          background: isDark
+            ? 'linear-gradient(135deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.7) 100%), url("https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80")'
+            : 'linear-gradient(135deg, rgba(240,235,225,0.87) 0%, rgba(220,210,195,0.76) 100%), url("https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
@@ -325,7 +327,7 @@ const galleryImages = [
                   <Typography
                     variant="h1"
                     sx={{
-                      color: '#F0EBE1',
+                      color: textPrimary,
                       fontSize: { xs: '2.5rem', md: '4.5rem', lg: '5.5rem' },
                       fontWeight: 700,
                       lineHeight: 1.1,
@@ -338,7 +340,9 @@ const galleryImages = [
                       component="span"
                       sx={{
                         display: 'block',
-                        background: `linear-gradient(135deg, #F0EBE1 20%, ${COLORS.primaryLight} 75%)`,
+                        background: isDark
+                          ? `linear-gradient(135deg, #F0EBE1 20%, ${COLORS.primaryLight} 75%)`
+                          : `linear-gradient(135deg, #3D2B1F 20%, ${COLORS.primaryDark} 75%)`,
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
                         fontSize: { xs: '3rem', md: '5rem', lg: '6rem' },
@@ -354,7 +358,7 @@ const galleryImages = [
                   <Typography
                     variant="h5"
                     sx={{
-                      color: 'rgba(255,255,255,0.8)',
+                      color: textSecondary,
                       maxWidth: '600px',
                       mb: 4,
                       fontSize: { xs: '1rem', md: '1.2rem' },

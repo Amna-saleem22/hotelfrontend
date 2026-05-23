@@ -739,6 +739,43 @@ const RoomsPage = () => {
         .luxury-gap-3 {
           gap: 1rem;
         }
+
+        /* ===== LIGHT MODE OVERRIDES ===== */
+        [data-theme="light"] .luxury-rooms-root {
+          background-color: #F7F4EF;
+        }
+        [data-theme="light"] .luxury-rooms-hero-bg {
+          background: linear-gradient(135deg, #EEE9E2 0%, #E3DAD0 50%, #D5C8B5 100%);
+        }
+        [data-theme="light"] .luxury-rooms-hero-title {
+          color: #1A1612;
+          text-shadow: none;
+        }
+        [data-theme="light"] .luxury-rooms-hero-title span {
+          background: linear-gradient(135deg, #3D2B1F 30%, #A68550 90%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        [data-theme="light"] .luxury-rooms-hero-description {
+          color: rgba(26,22,18,0.75);
+          text-shadow: none;
+        }
+        [data-theme="light"] .luxury-rooms-section-alt {
+          background: linear-gradient(135deg, #EEE9E2 0%, #E3DAD0 100%);
+        }
+        [data-theme="light"] .luxury-rooms-header h2 {
+          color: #1A1612;
+        }
+        [data-theme="light"] .luxury-rooms-header p {
+          color: rgba(26,22,18,0.7);
+        }
+        [data-theme="light"] .luxury-amenity-label {
+          color: rgba(26,22,18,0.75);
+        }
+        [data-theme="light"] .luxury-rooms-scroll-box {
+          background-color: rgba(26,22,18,0.08);
+          border-color: rgba(201,169,110,0.5);
+        }
       `}</style>
 
       <Box className="luxury-rooms-root">

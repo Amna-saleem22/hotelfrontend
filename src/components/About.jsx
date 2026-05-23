@@ -662,6 +662,53 @@ const About = () => {
           margin-left: auto;
           margin-right: auto;
         }
+
+        /* ===== LIGHT MODE OVERRIDES ===== */
+        [data-theme="light"] .luxury-about-root {
+          background-color: #F7F4EF;
+        }
+        [data-theme="light"] .luxury-hero-background::before {
+          background: linear-gradient(135deg, rgba(240,235,225,0.87) 0%, rgba(220,210,195,0.76) 100%);
+        }
+        [data-theme="light"] .luxury-hero-title {
+          color: #1A1612;
+          text-shadow: 0 2px 8px rgba(201,169,110,0.2);
+        }
+        [data-theme="light"] .luxury-hero-title span {
+          background: linear-gradient(135deg, #3D2B1F 30%, #A68550 90%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        [data-theme="light"] .luxury-hero-description {
+          color: rgba(26,22,18,0.75);
+          text-shadow: none;
+        }
+        [data-theme="light"] .luxury-achievements-paper {
+          background: rgba(255,255,255,0.97);
+          border-color: rgba(201,169,110,0.25);
+          box-shadow: 0 12px 32px rgba(0,0,0,0.07);
+        }
+        [data-theme="light"] .luxury-achievement-number {
+          color: #1A1612;
+        }
+        [data-theme="light"] .luxury-achievement-label {
+          color: rgba(26,22,18,0.65);
+        }
+        [data-theme="light"] .luxury-section-alt {
+          background: linear-gradient(135deg, #EEE9E2 0%, #E3DAD0 100%);
+        }
+        [data-theme="light"] .luxury-history-title {
+          color: #1A1612;
+        }
+        [data-theme="light"] .luxury-history-subtitle,
+        [data-theme="light"] .luxury-history-text,
+        [data-theme="light"] .luxury-history-feature {
+          color: rgba(26,22,18,0.7);
+        }
+        [data-theme="light"] .luxury-scroll-box {
+          background-color: rgba(26,22,18,0.08);
+          border-color: rgba(201,169,110,0.5);
+        }
       `}</style>
 
       <Box className="luxury-about-root">
