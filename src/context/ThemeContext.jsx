@@ -20,8 +20,18 @@ export function ThemeContextProvider({ children }) {
   };
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', mode);
-    document.body.style.transition = 'background-color 0.35s ease, color 0.35s ease';
+    const root = document.documentElement;
+    root.setAttribute('data-theme', mode);
+
+    const smoothCSS = 'background-color 0.38s cubic-bezier(0.4,0,0.2,1), color 0.38s cubic-bezier(0.4,0,0.2,1), border-color 0.38s cubic-bezier(0.4,0,0.2,1), box-shadow 0.38s cubic-bezier(0.4,0,0.2,1)';
+
+    root.style.transition = smoothCSS;
+    document.body.style.transition = smoothCSS;
+
+    const layoutEls = document.querySelectorAll(
+      'header, footer, nav, main, section, article, aside, [class*="luxury-"], [class*="lx-"], [class*="premium-"], [class*="feedback-"]'
+    );
+    layoutEls.forEach(el => { el.style.transition = smoothCSS; });
   }, [mode]);
 
   return (

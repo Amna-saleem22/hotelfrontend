@@ -408,3 +408,126 @@ button, a, input { transition: all 0.25s ease; }
 [data-theme="light"] .MuiSelect-icon {
   color: rgba(26, 22, 18, 0.55) !important;
 }
+
+/* ══════════════════════════════════════════════════════
+   ADDITIONAL LIGHT-MODE OVERRIDES (Phase 2)
+   ══════════════════════════════════════════════════════ */
+
+/* ---- Room component: text elements not yet covered ---- */
+[data-theme="light"] .luxury-amenity-label {
+  color: rgba(26, 22, 18, 0.72) !important;
+}
+[data-theme="light"] .luxury-amenity-icon {
+  color: #C9A96E !important;
+}
+[data-theme="light"] .luxury-cta-title {
+  color: #1A1612 !important;
+}
+[data-theme="light"] .luxury-cta-title span {
+  color: #C9A96E !important;
+}
+[data-theme="light"] .luxury-cta-text {
+  color: rgba(26, 22, 18, 0.72) !important;
+}
+[data-theme="light"] .luxury-cta-caption {
+  color: rgba(26, 22, 18, 0.45) !important;
+}
+[data-theme="light"] .luxury-room-card .MuiTypography-root,
+[data-theme="light"] .luxury-dining-card .MuiTypography-root {
+  color: inherit;
+}
+
+/* ---- Admin Feedback page ---- */
+[data-theme="light"] .feedback-container {
+  background: linear-gradient(135deg, #F7F4EF 0%, #EEE9E2 100%) !important;
+  min-height: 100vh;
+}
+[data-theme="light"] .feedback-card {
+  background: rgba(255, 253, 249, 0.98) !important;
+  border-color: rgba(201, 169, 110, 0.18) !important;
+  box-shadow: 0 4px 20px rgba(26, 22, 18, 0.07) !important;
+}
+[data-theme="light"] .feedback-card:hover {
+  background: #FFFDF8 !important;
+  box-shadow: 0 20px 40px rgba(26, 22, 18, 0.12) !important;
+}
+[data-theme="light"] .feedback-header {
+  color: #1A1612 !important;
+}
+[data-theme="light"] .guest-name {
+  color: #1A1612 !important;
+}
+[data-theme="light"] .remark-text {
+  color: rgba(26, 22, 18, 0.7) !important;
+  border-color: rgba(201, 169, 110, 0.18) !important;
+  background: rgba(238, 233, 226, 0.5) !important;
+}
+[data-theme="light"] .room-info {
+  color: rgba(26, 22, 18, 0.5) !important;
+}
+[data-theme="light"] .rating-wrapper {
+  background: rgba(201, 169, 110, 0.1) !important;
+  border-color: rgba(201, 169, 110, 0.2) !important;
+}
+[data-theme="light"] .stat-badge {
+  background: rgba(255, 253, 249, 0.97) !important;
+  border-color: rgba(201, 169, 110, 0.2) !important;
+  color: #1A1612 !important;
+}
+
+/* ---- MUI Table overrides ---- */
+[data-theme="light"] .MuiTableContainer-root {
+  background-color: #FFFDF8 !important;
+}
+[data-theme="light"] .MuiTableHead-root .MuiTableCell-root {
+  background-color: rgba(238, 233, 226, 0.85) !important;
+  color: rgba(26, 22, 18, 0.85) !important;
+}
+[data-theme="light"] .MuiTableBody-root .MuiTableRow-root:hover {
+  background-color: rgba(238, 233, 226, 0.5) !important;
+}
+
+/* ---- MUI Popover / Menu ---- */
+[data-theme="light"] .MuiPopover-paper,
+[data-theme="light"] .MuiMenu-paper,
+[data-theme="light"] .MuiAutocomplete-listbox {
+  background-color: #FFFDF8 !important;
+  border: 1px solid rgba(201, 169, 110, 0.2) !important;
+  color: #1A1612 !important;
+}
+[data-theme="light"] .MuiMenuItem-root {
+  color: #1A1612 !important;
+}
+[data-theme="light"] .MuiMenuItem-root:hover {
+  background-color: rgba(201, 169, 110, 0.1) !important;
+}
+
+/* ---- MUI Badge ---- */
+[data-theme="light"] .MuiBadge-badge {
+  color: #fff;
+}
+
+/* ---- Scrollbar (light mode) ---- */
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: #EEE9E2;
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: rgba(201, 169, 110, 0.35);
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 169, 110, 0.55);
+}
+
+/* ---- Global transition for theme switching ---- */
+*, *::before, *::after {
+  transition-property: background-color, color, border-color, box-shadow, fill, stroke;
+  transition-duration: 0.38s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* But don't transition ALL properties on things with their own animation */
+.lx-gi-img,
+.luxury-gallery-img,
+img {
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+

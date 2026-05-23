@@ -30,8 +30,22 @@ import StarIcon from '@mui/icons-material/Star';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { SPACING, CONTAINER, COLORS } from '../theme/designSystem';
+import { useThemeMode } from '../context/ThemeContext';
 
 const Home = () => {
+  const { isDark } = useThemeMode();
+
+  const textPrimary   = isDark ? '#F0EBE1' : '#1A1612';
+  const textSecondary = isDark ? 'rgba(240,235,225,0.68)' : 'rgba(26,22,18,0.65)';
+  const textMuted     = isDark ? 'rgba(240,235,225,0.55)' : 'rgba(26,22,18,0.52)';
+  const sectionBg     = isDark ? '#0A0909' : '#F7F4EF';
+  const sectionAltBg  = isDark
+    ? 'linear-gradient(135deg, #0a0a0a 0%, #111111 100%)'
+    : 'linear-gradient(135deg, #EEE9E2 0%, #F7F4EF 100%)';
+  const cardBg        = isDark ? 'rgba(22,19,14,0.92)' : 'rgba(255,253,249,0.97)';
+  const cardBorder    = isDark ? 'rgba(201,169,110,0.14)' : 'rgba(201,169,110,0.2)';
+  const cardBorderHover = isDark ? 'rgba(201,169,110,0.36)' : 'rgba(201,169,110,0.42)';
+
   const heroRef = useRef(null);
   const featuredRef = useRef(null);
   const servicesRef = useRef(null);
@@ -183,108 +197,17 @@ const Home = () => {
 
 
 
-  const theme = {
-  // Core Brand Colors — luxury gold
-  primaryLight: "#C9A96E",
-  primaryMain: "#D4AF70",
-  primaryDark: "#A68550",
 
-  // Background Colors
-  bgMain: "#0A0909",
-  bgSecondary: "#141210",
-  footerGradient: "linear-gradient(135deg, #0a0909 0%, #141210 100%)",
-  glassEffect: "rgba(255, 255, 255, 0.04)",
-
-  // Text Colors
-  textPrimary: "#F0EBE1",
-  textSecondary: "rgba(240, 235, 225, 0.65)",
-  textMuted: "rgba(240, 235, 225, 0.45)",
-
-  // Border Colors
-  borderLight: "rgba(201, 169, 110, 0.12)",
-  borderStrong: "rgba(201, 169, 110, 0.36)",
-
-  // Navbar
-  navbarBg: "rgba(10, 9, 8, 0.88)",
-  navbarScrolled: "rgba(10, 9, 8, 0.97)",
-  backdropBlur: "blur(16px)",
-  navbarBorder: "1px solid rgba(201, 169, 110, 0.25)",
-  hoverColor: "#C9A96E",
-  transition: "0.3s ease",
-
-  // Mobile Drawer
-  drawerBg: "#141210",
-  activeBg: "rgba(201, 169, 110, 0.12)",
-  activeIcon: "#C9A96E",
-
-  // Footer Effects
-  radialGlow: "radial-gradient(circle at 0% 50%, #C9A96E 0%, transparent 50%)",
-  particleColor: "rgba(201, 169, 110, 0.08)",
-  bottomLine: "linear-gradient(90deg, transparent, #C9A96E, transparent)",
-
-  // Newsletter
-  newsletterContainer: "rgba(255, 255, 255, 0.04)",
-  newsletterBorder: "1px solid rgba(201, 169, 110, 0.3)",
-  newsletterRadius: "12px",
-  newsletterButton: "#C9A96E",
-};
-
-// Sample luxury hotel images (high‑quality placeholders)
 const galleryImages = [
-  {
-    id: 1,
-    src: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800&auto=format",
-    alt: "Luxury hotel lobby with chandelier",
-    category: "Lobby",
-  },
-  {
-    id: 2,
-    src: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&auto=format",
-    alt: "Elegant hotel room with city view",
-    category: "Room",
-  },
-  {
-    id: 3,
-    src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&auto=format",
-    alt: "Infinity swimming pool overlooking ocean",
-    category: "Pool",
-  },
-  {
-    id: 4,
-    src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&auto=format",
-    alt: "Fine dining restaurant with white tablecloths",
-    category: "Restaurant",
-  },
-  {
-    id: 5,
-    src: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&auto=format",
-    alt: "Modern hotel exterior at night",
-    category: "Exterior",
-  },
-  {
-    id: 6,
-    src: "https://images.unsplash.com/photo-1765745518752-68a289300789?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8THV4dXJ5JTIwc3BhJTIwd2l0aCUyMG1hcmJsZSUyMGFuZCUyMGNhbmRsZXN8ZW58MHx8MHx8fDA%3D",
-    alt: "Luxury spa with marble and candles",
-    category: "Spa",
-  },
-  {
-    id: 7,
-    src: "https://images.unsplash.com/photo-1561501878-aabd62634533?w=800&auto=format",
-    alt: "Grand ballroom with crystal chandeliers",
-    category: "Events",
-  },
-  {
-    id: 8,
-    src: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800&auto=format",
-    alt: "Rooftop bar with panoramic view",
-    category: "Bar",
-  },
-   {
-    id: 8,
-    src: "https://images.unsplash.com/photo-1765122670586-b5f22d95c17f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8THV4dXJ5JTIwaG90ZWwlMjBlbnRyYW5jZXxlbnwwfHwwfHx8MA%3D%3D",
-    alt: "Rooftop bar with panoramic view",
-    category: "Bar",
-  },
+  { id: 1, src: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=900&auto=format", alt: "Grand lobby with soaring chandelier", category: "Lobby", tall: true },
+  { id: 2, src: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&auto=format", alt: "Elegant suite with panoramic city view", category: "Room" },
+  { id: 3, src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&auto=format", alt: "Infinity pool at sunset", category: "Pool" },
+  { id: 4, src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&auto=format", alt: "Fine dining with ocean view", category: "Restaurant", wide: true },
+  { id: 5, src: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&auto=format", alt: "Hotel exterior at dusk", category: "Exterior" },
+  { id: 6, src: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=900&auto=format", alt: "Serene spa with marble and candlelight", category: "Spa" },
+  { id: 7, src: "https://images.unsplash.com/photo-1561501878-aabd62634533?w=900&auto=format", alt: "Grand ballroom with crystal chandeliers", category: "Events", tall: true },
+  { id: 8, src: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=900&auto=format", alt: "Sky bar with panoramic rooftop views", category: "Bar" },
+  { id: 9, src: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=900&auto=format", alt: "Luxury hotel pool terrace", category: "Pool" },
 ];
 
   const sectionRef = useRef(null);
@@ -313,195 +236,33 @@ const galleryImages = [
   }, []);
 
   const [selectedImage, setSelectedImage] = useState(null);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [activeGalleryFilter, setActiveGalleryFilter] = useState('All');
 
-  // Open modal with the clicked image
-  const openLightbox = (image) => {
-    setSelectedImage(image);
+  const filteredGallery = activeGalleryFilter === 'All'
+    ? galleryImages
+    : galleryImages.filter(img => img.category === activeGalleryFilter);
+
+  const openLightbox = (img, idx) => {
+    const i = idx != null ? idx : filteredGallery.findIndex(g => g === img);
+    setLightboxIndex(i >= 0 ? i : 0);
+    setSelectedImage(img);
   };
 
-  // Close modal
-  const closeLightbox = () => {
-    setSelectedImage(null);
+  const closeLightbox = () => { setSelectedImage(null); };
+
+  const nextLightbox = (e) => {
+    e.stopPropagation();
+    const next = (lightboxIndex + 1) % filteredGallery.length;
+    setLightboxIndex(next);
+    setSelectedImage(filteredGallery[next]);
   };
 
-  // Styles object (inline CSS)
-  const styles = {
-    gallerySection: {
-      backgroundColor: theme.bgMain,
-      padding: "80px 24px",
-      fontFamily: "'Inter', 'Helvetica Neue', sans-serif",
-      color: theme.textPrimary,
-    },
-    container: {
-      maxWidth: "1280px",
-      margin: "0 auto",
-    },
-    header: {
-      textAlign: "center",
-      marginBottom: "56px",
-    },
-    title: {
-      fontSize: "clamp(2rem, 5vw, 3rem)",
-      fontWeight: "300",
-      letterSpacing: "2px",
-      margin: "0 0 12px 0",
-      textTransform: "uppercase",
-      color: theme.textPrimary,
-    },
-    titleAccent: {
-      color: theme.primaryLight,
-      fontWeight: "400",
-    },
-    subtitle: {
-      fontSize: "clamp(1rem, 2vw, 1.2rem)",
-      color: theme.textSecondary,
-      letterSpacing: "1px",
-      fontWeight: "300",
-      borderBottom: `1px solid ${theme.borderStrong}`,
-      display: "inline-block",
-      paddingBottom: "8px",
-    },
-    grid: {
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-      gap: "24px",
-      gridAutoRows: "280px",
-      gridAutoFlow: "row dense",
-    },
-    // Masonry-like effect: make some spans larger
-    gridItem: (index) => {
-      const largeSpans = [1, 4, 6]; // indices for larger items (just for visual interest)
-      const isLarge = largeSpans.includes(index);
-      return {
-        gridRow: isLarge ? "span 2" : "span 1",
-        gridColumn: isLarge ? "span 1" : "span 1",
-        position: "relative",
-        overflow: "hidden",
-        borderRadius: "12px",
-        cursor: "pointer",
-        boxShadow: "0 10px 30px -10px rgba(0, 0, 0, 0.5)",
-        border: `1px solid ${theme.borderLight}`,
-        transition: `all ${theme.transition}`,
-        backgroundColor: theme.bgSecondary, // fallback while loading
-      };
-    },
-    image: {
-      width: "100%",
-      height: "100%",
-      objectFit: "cover",
-      display: "block",
-      transition: `transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)`,
-    },
-    overlay: {
-      position: "absolute",
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      background: "linear-gradient(180deg, rgba(10,9,8,0.15) 0%, rgba(10,9,8,0.7) 100%)",
-      display: "flex",
-      alignItems: "flex-end",
-      justifyContent: "flex-start",
-      padding: "20px",
-      opacity: 0,
-      transition: `opacity ${theme.transition}`,
-      color: theme.textPrimary,
-    },
-    overlayContent: {
-      transform: "translateY(10px)",
-      transition: `transform ${theme.transition}`,
-    },
-    category: {
-      fontSize: "0.8rem",
-      textTransform: "uppercase",
-      letterSpacing: "2px",
-      color: theme.primaryLight,
-      marginBottom: "4px",
-    },
-    imageAlt: {
-      fontSize: "1.1rem",
-      fontWeight: "400",
-      margin: 0,
-      textShadow: "0 2px 4px rgba(0,0,0,0.3)",
-    },
-    // Hover effects will be applied via pseudo-classes in JS/React using onMouseEnter/Leave,
-    // but for simplicity we'll use a styled component approach with inline hover simulation? 
-    // Since pure inline styles don't support :hover, we use a wrapper div with class or inline hover via state.
-    // For brevity, I'll add a style block inside component via a <style> tag (dynamic CSS) to handle hover.
-    // Alternatively, we can manage hover with state, but that's too many states. 
-    // Best: include a tiny style tag in the component for hover effects.
-    // I'll add a <style> element for the hover rules to keep it self‑contained.
-    
-    // Lightbox (modal) styles
-    lightboxOverlay: {
-      position: "fixed",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      backgroundColor: "rgba(10, 10, 10, 0.98)",
-      backdropFilter: "blur(10px)",
-      zIndex: 9999,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      padding: "24px",
-      boxSizing: "border-box",
-      cursor: "zoom-out",
-    },
-    lightboxContent: {
-      maxWidth: "1200px",
-      maxHeight: "90vh",
-      position: "relative",
-      animation: "fadeIn 0.3s ease",
-      cursor: "default",
-    },
-    lightboxImage: {
-      width: "100%",
-      height: "auto",
-      maxHeight: "80vh",
-      objectFit: "contain",
-      borderRadius: "12px",
-      border: `1px solid ${theme.borderStrong}`,
-      boxShadow: "0 20px 40px rgba(0,0,0,0.5)",
-    },
-    lightboxInfo: {
-      position: "absolute",
-      bottom: "-40px",
-      left: "0",
-      right: "0",
-      textAlign: "center",
-      color: theme.textSecondary,
-      fontSize: "0.9rem",
-      letterSpacing: "1px",
-    },
-    closeButton: {
-      position: "absolute",
-      top: "-40px",
-      right: "0",
-      background: "none",
-      border: "none",
-      color: theme.textPrimary,
-      fontSize: "2rem",
-      cursor: "pointer",
-      padding: "8px 16px",
-      transition: `color ${theme.transition}`,
-      lineHeight: 1,
-    },
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Inline media queries and hover styles via style tag
+  const prevLightbox = (e) => {
+    e.stopPropagation();
+    const prev = (lightboxIndex - 1 + filteredGallery.length) % filteredGallery.length;
+    setLightboxIndex(prev);
+    setSelectedImage(filteredGallery[prev]);
   };
 
   return (
@@ -955,9 +716,18 @@ const galleryImages = [
         }
 
         /* Smooth scrolling for the whole page */
-        html {
-          scroll-behavior: smooth;
+        html { scroll-behavior: smooth; }
+
+        /* About section light mode */
+        [data-theme="light"] .premium-hotel-about {
+          background-color: #F7F4EF;
+          color: #1A1612;
         }
+        [data-theme="light"] .premium-hotel-about::before {
+          background: radial-gradient(circle at 0% 50%, rgba(201,169,110,0.11) 0%, transparent 50%);
+        }
+        [data-theme="light"] .premium-hotel-heading { color: #1A1612; }
+        [data-theme="light"] .premium-hotel-description { color: rgba(26,22,18,0.7); }
       `}</style>
 
       <section ref={sectionRef} className="premium-hotel-about">
@@ -1008,91 +778,245 @@ const galleryImages = [
 
 
 
-{/* Featured gallerySection */}
+{/* ═══ GALLERY SECTION — Premium Redesign ═══ */}
+<section className="lx-gallery">
+  <style>{`
+    .lx-gallery {
+      padding: 90px 24px;
+      background-color: #0A0909;
+      font-family: 'Inter', sans-serif;
+      overflow: hidden;
+      position: relative;
+      transition: background-color 0.38s ease;
+    }
+    [data-theme="light"] .lx-gallery { background-color: #EEE9E2; }
+    .lx-gallery::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 80% 15%, rgba(201,169,110,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    [data-theme="light"] .lx-gallery::before {
+      background: radial-gradient(ellipse at 80% 15%, rgba(201,169,110,0.1) 0%, transparent 60%);
+    }
+    .lx-gallery-inner { max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; }
+    .lx-gallery-overline {
+      text-align: center; font-size: 0.7rem; letter-spacing: 5px;
+      text-transform: uppercase; color: #C9A96E; font-weight: 600; margin: 0 0 14px;
+    }
+    .lx-gallery-title {
+      text-align: center;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 300; letter-spacing: 2px; text-transform: uppercase;
+      color: #F0EBE1; margin: 0 0 10px;
+      transition: color 0.38s ease;
+    }
+    [data-theme="light"] .lx-gallery-title { color: #1A1612; }
+    .lx-gallery-title b { color: #C9A96E; font-weight: 600; }
+    .lx-gallery-divider {
+      width: 60px; height: 1px;
+      background: linear-gradient(90deg, transparent, #C9A96E, transparent);
+      margin: 14px auto 18px;
+    }
+    .lx-gallery-sub {
+      text-align: center; font-size: 0.95rem;
+      color: rgba(240,235,225,0.55); margin: 0 0 44px;
+      transition: color 0.38s ease;
+    }
+    [data-theme="light"] .lx-gallery-sub { color: rgba(26,22,18,0.52); }
+    .lx-gallery-filters {
+      display: flex; justify-content: center; gap: 8px;
+      flex-wrap: wrap; margin-bottom: 40px;
+    }
+    .lx-gf-btn {
+      background: transparent;
+      border: 1px solid rgba(201,169,110,0.22);
+      color: rgba(240,235,225,0.62);
+      padding: 6px 20px; border-radius: 50px;
+      font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase;
+      cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 500;
+      transition: all 0.25s ease; outline: none;
+    }
+    [data-theme="light"] .lx-gf-btn {
+      color: rgba(26,22,18,0.58); border-color: rgba(201,169,110,0.28);
+    }
+    .lx-gf-btn:hover, .lx-gf-btn.active {
+      background: rgba(201,169,110,0.12); border-color: #C9A96E; color: #C9A96E;
+    }
+    .lx-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 240px;
+      gap: 14px;
+    }
+    @media (max-width: 1100px) { .lx-gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .lx-gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; } }
+    @media (max-width: 480px)  { .lx-gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; } }
+    .lx-gi {
+      position: relative; overflow: hidden; border-radius: 10px; cursor: pointer;
+      border: 1px solid rgba(201,169,110,0.1);
+      background-color: #141210;
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s ease, border-color 0.38s ease;
+    }
+    [data-theme="light"] .lx-gi { background-color: #d4cfc9; border-color: rgba(201,169,110,0.16); }
+    .lx-gi:hover {
+      transform: translateY(-5px) scale(1.01);
+      border-color: rgba(201,169,110,0.5);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(201,169,110,0.1);
+      z-index: 3;
+    }
+    [data-theme="light"] .lx-gi:hover {
+      box-shadow: 0 24px 60px rgba(26,22,18,0.2), 0 0 0 1px rgba(201,169,110,0.2);
+    }
+    .lx-gi.tall { grid-row: span 2; }
+    .lx-gi.wide { grid-column: span 2; }
+    @media (max-width: 480px) { .lx-gi.tall, .lx-gi.wide { grid-row: span 1; grid-column: span 1; } }
+    .lx-gi-img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    }
+    .lx-gi:hover .lx-gi-img { transform: scale(1.12); }
+    .lx-gi-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(0deg, rgba(6,5,4,0.88) 0%, rgba(6,5,4,0.2) 45%, transparent 100%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 18px 20px; opacity: 0; transition: opacity 0.35s ease;
+    }
+    .lx-gi:hover .lx-gi-overlay { opacity: 1; }
+    .lx-gi-cat {
+      font-size: 0.67rem; text-transform: uppercase; letter-spacing: 2.5px;
+      color: #C9A96E; font-weight: 600; margin-bottom: 5px;
+      transform: translateY(10px); transition: transform 0.35s ease;
+    }
+    .lx-gi:hover .lx-gi-cat { transform: translateY(0); }
+    .lx-gi-cap {
+      font-size: 0.88rem; color: #F0EBE1; font-weight: 400; margin: 0;
+      transform: translateY(10px); transition: transform 0.35s ease 0.04s; line-height: 1.4;
+    }
+    .lx-gi:hover .lx-gi-cap { transform: translateY(0); }
+    .lx-gi-expand {
+      position: absolute; top: 12px; right: 12px;
+      width: 30px; height: 30px; border-radius: 50%;
+      background: rgba(10,9,8,0.5); border: 1px solid rgba(201,169,110,0.4);
+      display: flex; align-items: center; justify-content: center;
+      color: #C9A96E; font-size: 14px;
+      opacity: 0; transform: scale(0.6);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .lx-gi:hover .lx-gi-expand { opacity: 1; transform: scale(1); }
+    .lx-gallery-count {
+      text-align: center; margin-top: 28px;
+      font-size: 0.72rem; letter-spacing: 2px;
+      color: rgba(240,235,225,0.35); text-transform: uppercase;
+      transition: color 0.38s ease;
+    }
+    [data-theme="light"] .lx-gallery-count { color: rgba(26,22,18,0.35); }
+    .lx-lb {
+      position: fixed; inset: 0; background: rgba(4,3,3,0.97);
+      backdrop-filter: blur(22px); z-index: 9999;
+      display: flex; align-items: center; justify-content: center; padding: 24px;
+      animation: lxFadeIn 0.28s ease;
+    }
+    @keyframes lxFadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .lx-lb-wrap {
+      position: relative; display: flex; align-items: center; gap: 16px;
+      max-width: min(92vw, 1100px);
+    }
+    .lx-lb-img-box { position: relative; animation: lxSlide 0.3s cubic-bezier(0.4,0,0.2,1); }
+    @keyframes lxSlide { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
+    .lx-lb-img {
+      display: block; max-width: 100%; max-height: 80vh; object-fit: contain;
+      border-radius: 10px; border: 1px solid rgba(201,169,110,0.25);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+    }
+    .lx-lb-info {
+      position: absolute; bottom: -36px; left: 0; right: 0; text-align: center;
+      color: rgba(240,235,225,0.5); font-size: 0.82rem; letter-spacing: 0.5px;
+    }
+    .lx-lb-close {
+      position: absolute; top: -44px; right: 0;
+      background: rgba(201,169,110,0.1); border: 1px solid rgba(201,169,110,0.3);
+      color: #C9A96E; width: 34px; height: 34px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 15px; transition: all 0.25s ease; line-height: 1;
+    }
+    .lx-lb-close:hover { background: rgba(201,169,110,0.22); transform: scale(1.1); }
+    .lx-lb-counter {
+      position: absolute; top: -44px; left: 0;
+      color: rgba(240,235,225,0.42); font-size: 0.78rem; letter-spacing: 1px;
+    }
+    .lx-lb-nav {
+      background: rgba(201,169,110,0.1); border: 1px solid rgba(201,169,110,0.25);
+      color: #C9A96E; width: 46px; height: 46px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 22px; flex-shrink: 0; transition: all 0.25s ease;
+    }
+    .lx-lb-nav:hover { background: rgba(201,169,110,0.22); transform: scale(1.08); }
+    @media (max-width: 600px) { .lx-lb-nav { display: none; } .lx-lb-img { max-height: 70vh; } }
+  `}</style>
 
+  <div className="lx-gallery-inner">
+    <div style={{ textAlign: 'center' }}>
+      <p className="lx-gallery-overline">Our Spaces</p>
+      <h2 className="lx-gallery-title">Hotel <b>Gallery</b></h2>
+      <div className="lx-gallery-divider" />
+      <p className="lx-gallery-sub">Explore our world-class luxury spaces</p>
+    </div>
 
+    <div className="lx-gallery-filters">
+      {['All', 'Lobby', 'Room', 'Pool', 'Restaurant', 'Exterior', 'Spa', 'Events', 'Bar'].map(cat => (
+        <button
+          key={cat}
+          className={`lx-gf-btn${activeGalleryFilter === cat ? ' active' : ''}`}
+          onClick={() => setActiveGalleryFilter(cat)}
+        >
+          {cat}
+        </button>
+      ))}
+    </div>
 
- <section style={styles.gallerySection}>
-      {/* Inject hover styles via style tag (self-contained) */}
-      <style>
-        {`
-          .gallery-item:hover img {
-            transform: scale(1.08);
-          }
-          .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-          }
-          .gallery-item:hover .overlay-content {
-            transform: translateY(0);
-          }
-          .lightbox-close:hover {
-            color: ${theme.primaryLight} !important;
-          }
-          @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-          }
-        `}
-      </style>
-
-      <div style={styles.container}>
-        {/* Section Header */}
-        <div style={styles.header}>
-          <h2 style={styles.title}>
-            Hotel <span style={styles.titleAccent}>Gallery</span>
-          </h2>
-          <p style={styles.subtitle}>Explore Our Luxury Spaces</p>
+    <div className="lx-gallery-grid">
+      {filteredGallery.map((img, i) => (
+        <div
+          key={img.id + '-' + i}
+          className={`lx-gi${img.tall ? ' tall' : ''}${img.wide ? ' wide' : ''}`}
+          onClick={() => openLightbox(img, i)}
+        >
+          <img src={img.src} alt={img.alt} className="lx-gi-img" loading="lazy" />
+          <div className="lx-gi-overlay">
+            <span className="lx-gi-cat">{img.category}</span>
+            <p className="lx-gi-cap">{img.alt}</p>
+          </div>
+          <div className="lx-gi-expand">&#8599;</div>
         </div>
+      ))}
+    </div>
+    <p className="lx-gallery-count">{filteredGallery.length} luxury spaces</p>
+  </div>
 
-        {/* Gallery Grid */}
-        <div style={styles.grid}>
-          {galleryImages.map((image, index) => (
-            <div
-              key={image.id}
-              className="gallery-item"
-              style={styles.gridItem(index)}
-              onClick={() => openLightbox(image)}
-            >
-              <img
-                src={image.src}
-                alt={image.alt}
-                style={styles.image}
-                loading="lazy"
-              />
-              <div className="gallery-overlay" style={styles.overlay}>
-                <div className="overlay-content" style={styles.overlayContent}>
-                  <div style={styles.category}>{image.category}</div>
-                  <p style={styles.imageAlt}>{image.alt}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Lightbox Modal */}
-      {selectedImage && (
-        <div style={styles.lightboxOverlay} onClick={closeLightbox}>
-          <div style={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
-            <button
-              style={styles.closeButton}
-              onClick={closeLightbox}
-              className="lightbox-close"
-            >
-              ✕
-            </button>
-            <img
-              src={selectedImage.src}
-              alt={selectedImage.alt}
-              style={styles.lightboxImage}
-            />
-            <div style={styles.lightboxInfo}>
-              <span>{selectedImage.alt}</span> &nbsp; | &nbsp; <span style={{ color: theme.primaryLight }}>{selectedImage.category}</span>
-            </div>
+  {selectedImage && (
+    <div className="lx-lb" onClick={closeLightbox}>
+      <div className="lx-lb-wrap" onClick={e => e.stopPropagation()}>
+        <span className="lx-lb-counter">{lightboxIndex + 1} / {filteredGallery.length}</span>
+        <button className="lx-lb-close" onClick={closeLightbox}>&#x2715;</button>
+        <button className="lx-lb-nav" onClick={prevLightbox}>&#8249;</button>
+        <div className="lx-lb-img-box">
+          <img
+            key={selectedImage.src + lightboxIndex}
+            src={selectedImage.src}
+            alt={selectedImage.alt}
+            className="lx-lb-img"
+          />
+          <div className="lx-lb-info">
+            {selectedImage.alt}&nbsp;&middot;&nbsp;
+            <span style={{ color: '#C9A96E' }}>{selectedImage.category}</span>
           </div>
         </div>
-      )}
-    </section>
+        <button className="lx-lb-nav" onClick={nextLightbox}>&#8250;</button>
+      </div>
+    </div>
+  )}
+</section>
 {/* Featured end gallerySection */}
 
 
@@ -1120,8 +1044,9 @@ const galleryImages = [
   sx={{
     py: { xs: 6, sm: 8, md: 10, lg: 12 },
     px: { xs: 2, sm: 3, md: 4 },
-    background: 'linear-gradient(135deg, #0a0a0a 0%, #111111 100%)',
+    background: sectionAltBg,
     position: 'relative',
+    transition: 'background 0.38s ease',
   }}
 >
   <Container 
@@ -1135,7 +1060,7 @@ const galleryImages = [
         variant="h2"
         align="center"
         sx={{
-          color: 'white',
+          color: textPrimary,
           mb: { xs: 1, sm: 2 },
           fontSize: { 
             xs: '1.8rem', 
@@ -1168,7 +1093,7 @@ const galleryImages = [
         variant="body1"
         align="center"
         sx={{
-          color: 'rgba(255,255,255,0.7)',
+          color: textMuted,
           mb: { xs: 4, sm: 5, md: 6, lg: 8 },
           maxWidth: { xs: '100%', sm: '90%', md: '800px' },
           mx: 'auto',
@@ -1217,9 +1142,9 @@ const galleryImages = [
               sx={{
                 p: { xs: 2.5, sm: 3, md: 3.5 },
                 textAlign: 'center',
-                backgroundColor: COLORS.surface,
+                backgroundColor: cardBg,
                 backdropFilter: 'blur(10px)',
-                border: `1px solid ${COLORS.border}`,
+                border: `1px solid ${cardBorder}`,
                 borderRadius: { xs: 3, sm: 3.5, md: 4 },
                 height: '100%',
                 transition: 'all 0.3s ease-in-out',
@@ -1227,8 +1152,8 @@ const galleryImages = [
                 flexDirection: 'column',
                 alignItems: 'center',
                 '&:hover': {
-                  border: `1px solid ${COLORS.borderStrong}`,
-                  boxShadow: '0 20px 40px rgba(0,0,0,0.35), 0 0 30px rgba(201,169,110,0.08)',
+                  border: `1px solid ${cardBorderHover}`,
+                  boxShadow: isDark ? '0 20px 40px rgba(0,0,0,0.35), 0 0 30px rgba(201,169,110,0.08)' : '0 20px 40px rgba(26,22,18,0.12), 0 0 20px rgba(201,169,110,0.1)',
                 },
               }}
             >
@@ -1256,7 +1181,7 @@ const galleryImages = [
               <Typography 
                 variant="h5" 
                 sx={{ 
-                  color: 'white', 
+                  color: textPrimary, 
                   fontWeight: 600, 
                   mb: { xs: 1, sm: 1.5 },
                   fontSize: { 
@@ -1271,7 +1196,7 @@ const galleryImages = [
               <Typography 
                 variant="body2" 
                 sx={{ 
-                  color: 'rgba(255,255,255,0.6)',
+                  color: textSecondary,
                   fontSize: { 
                     xs: '0.8rem', 
                     sm: '0.85rem', 
@@ -1305,8 +1230,9 @@ const galleryImages = [
         sx={{
           py: SPACING.sectionY,
           px: SPACING.sectionX,
-          backgroundColor: COLORS.background,
+          backgroundColor: sectionBg,
           position: 'relative',
+          transition: 'background-color 0.38s ease',
         }}
       >
         <Container maxWidth={CONTAINER.content}>
@@ -1315,7 +1241,7 @@ const galleryImages = [
               variant="h2"
               align="center"
               sx={{
-                color: 'white',
+                color: textPrimary,
                 mb: 2,
                 fontSize: { xs: '2rem', md: '3rem' },
               }}
@@ -1329,7 +1255,7 @@ const galleryImages = [
               variant="body1"
               align="center"
               sx={{
-                color: 'rgba(255,255,255,0.7)',
+                color: textMuted,
                 mb: 8,
                 maxWidth: '800px',
                 mx: 'auto',
@@ -1367,9 +1293,9 @@ const galleryImages = [
                 <Card
                   sx={{
                     p: SPACING.cardPadding,
-                    backgroundColor: COLORS.surface,
+                    backgroundColor: cardBg,
                     backdropFilter: 'blur(10px)',
-                    border: `1px solid ${COLORS.borderStrong}`,
+                    border: `1px solid ${cardBorderHover}`,
                     borderRadius: 2,
                   }}
                 >
@@ -1386,7 +1312,7 @@ const galleryImages = [
                             border: `4px solid ${COLORS.primaryLight}`,
                           }}
                         />
-                        <Typography variant="h5" sx={{ color: 'white', fontWeight: 600 }}>
+                        <Typography variant="h5" sx={{ color: textPrimary, fontWeight: 600 }}>
                           {testimonials[currentTestimonial].name}
                         </Typography>
                         <Typography variant="body2" sx={{ color: COLORS.primaryLight, mb: 1 }}>
@@ -1403,7 +1329,7 @@ const galleryImages = [
                       <Typography
                         variant="h4"
                         sx={{
-                          color: 'white',
+                          color: textPrimary,
                           mb: 3,
                           fontSize: { xs: '1.5rem', md: '2rem' },
                         }}
@@ -1413,7 +1339,7 @@ const galleryImages = [
                       <Typography
                         variant="body1"
                         sx={{
-                          color: 'rgba(255,255,255,0.8)',
+                          color: textSecondary,
                           fontSize: { xs: '1rem', md: '1.2rem' },
                           lineHeight: 1.8,
                           fontStyle: 'italic',
@@ -1424,7 +1350,7 @@ const galleryImages = [
                       <Typography
                         variant="h4"
                         sx={{
-                          color: 'white',
+                          color: textPrimary,
                           mt: 3,
                           textAlign: 'right',
                           fontSize: { xs: '1.5rem', md: '2rem' },
@@ -1486,7 +1412,7 @@ const galleryImages = [
      
 
       {/* CSS Animations */}
-      <style jsx>{`
+      <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px); }
           50% { transform: translateY(-20px); }

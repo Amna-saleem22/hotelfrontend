@@ -33,6 +33,7 @@ import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
 import BalconyIcon from '@mui/icons-material/Balcony';
 import HotTubIcon from '@mui/icons-material/HotTub';
 import LightIcon from '@mui/icons-material/Light';
+import { useThemeMode } from '../context/ThemeContext';
 
 // ===== Theme constants =====
 const COLORS = {
@@ -66,6 +67,11 @@ const CONTAINER = {
 };
 
 const RoomsPage = () => {
+  const { isDark } = useThemeMode();
+  const textPrimary   = isDark ? '#F0EBE1' : '#1A1612';
+  const textSecondary = isDark ? 'rgba(240,235,225,0.7)' : 'rgba(26,22,18,0.68)';
+  const textMuted     = isDark ? 'rgba(240,235,225,0.55)' : 'rgba(26,22,18,0.52)';
+
   // Refs for scroll animations
   const heroRef = useRef(null);
   const roomsRef = useRef(null);
@@ -863,18 +869,18 @@ const RoomsPage = () => {
 
                     <CardContent className="luxury-room-content">
                       <div className="luxury-room-header">
-                        <Typography variant="h4" sx={{ color: 'white', fontWeight: 600, fontSize: '1.5rem' }}>
+                        <Typography variant="h4" sx={{ color: textPrimary, fontWeight: 600, fontSize: '1.5rem' }}>
                           {room.name}
                         </Typography>
                         <div className="luxury-room-rating">
                           <Rating value={room.rating} readOnly size="small" sx={{ color: '#C9A96E', mr: 1 }} />
-                          <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.6)' }}>
+                          <Typography variant="caption" sx={{ color: textMuted }}>
                             ({room.reviews})
                           </Typography>
                         </div>
                       </div>
 
-                      <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.7)', mb: 2, lineHeight: 1.7 }}>
+                      <Typography variant="body2" sx={{ color: textSecondary, mb: 2, lineHeight: 1.7 }}>
                         {room.description}
                       </Typography>
 
@@ -901,7 +907,7 @@ const RoomsPage = () => {
 
                       <Divider sx={{ borderColor: 'rgba(201,169,110,0.15)', my: 2 }} />
 
-                      <Typography variant="subtitle2" sx={{ color: 'white', mb: 1 }}>
+                      <Typography variant="subtitle2" sx={{ color: textPrimary, mb: 1 }}>
                         Amenities:
                       </Typography>
 
@@ -993,7 +999,7 @@ const RoomsPage = () => {
                       </Box>
                     </div>
 
-                    <Typography variant="h5" sx={{ color: 'white', fontWeight: 600, mb: 1 }}>
+                    <Typography variant="h5" sx={{ color: textPrimary, fontWeight: 600, mb: 1 }}>
                       {category.name}
                     </Typography>
 
@@ -1001,7 +1007,7 @@ const RoomsPage = () => {
                       {category.time}
                     </Typography>
 
-                    <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.7)', mb: 3, lineHeight: 1.7 }}>
+                    <Typography variant="body2" sx={{ color: textSecondary, mb: 3, lineHeight: 1.7 }}>
                       {category.description}
                     </Typography>
 
@@ -1055,7 +1061,7 @@ const RoomsPage = () => {
                     label={item.label}
                     sx={{
                       backgroundColor: 'rgba(201,169,110,0.08)',
-                      color: '#F0EBE1',
+                      color: textPrimary,
                       border: '1px solid rgba(201,169,110,0.25)',
                       py: 2,
                       transition: 'all 0.3s ease',
